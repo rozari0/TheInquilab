@@ -10,6 +10,10 @@
 asgiref==3.8.1
     # via django
 django==5.0.7
+    # via django-taggit
+    # via django-unfold
+django-taggit==5.0.1
+django-unfold==0.30.0
 sqlparse==0.5.1
     # via django
 tzdata==2024.1

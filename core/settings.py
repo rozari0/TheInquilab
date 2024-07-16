@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "unfold",  # Custom Admin
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -43,8 +44,12 @@ INSTALLED_APPS = [
 
 INSTALLED_APPS += [
     "user",
+    "newslist",
 ]
 
+INSTALLED_APPS += [
+    "taggit",
+]
 # User
 AUTH_USER_MODEL = "user.CustomUser"
 
@@ -63,7 +68,7 @@ ROOT_URLCONF = "core.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -123,6 +128,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 STATIC_URL = "static/"
 
