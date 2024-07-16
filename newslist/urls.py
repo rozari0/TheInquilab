@@ -1,6 +1,7 @@
-from .views import NewsListView
+from .views import NewsListView, tagview
 from django.urls import path
 
 urlpatterns = [
-    path("base/", NewsListView.as_view(), name="news-list"),
+    path("news/", NewsListView.as_view(), name="news-list"),
+    path("tag/<slug:slug>", tagview, name="tagbase-view"),
 ]
