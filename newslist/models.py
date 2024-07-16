@@ -1,5 +1,6 @@
 from django.db import models
 from taggit.managers import TaggableManager
+from .bn_taggit import BnTaggedItem
 
 
 # Create your models here.
@@ -19,7 +20,7 @@ class News(models.Model):
         blank=True,
         verbose_name="Is someone has been unalived in this news?: ",
     )
-    tags = TaggableManager()
+    tags = TaggableManager(through=BnTaggedItem)
 
     class Meta:
         verbose_name_plural = "News"
@@ -36,7 +37,7 @@ class UserReport(models.Model):
     content = models.TextField(verbose_name="Description", blank=True, null=True)
     approved = models.BooleanField(default=False, blank=True)
     report_time = models.DateTimeField(auto_now_add=True)
-    tags = TaggableManager(blank=True)
+    tags = TaggableManager(blank=True, through=BnTaggedItem)
 
     def __str__(self):
         return self.title

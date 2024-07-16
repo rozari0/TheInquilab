@@ -1,38 +1,36 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Quota Reform Protest Archive
-{% endblock title %}
-
+  Quota Reform Protest Archive
+{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
+  <div class="container mt-5">
     <div class="row">
-        {% for news in object_list %}
+      {% for news in object_list %}
         <div class="col-md-6 mb-4">
-            <div class="card h-100">
-                {% if news.image %}
-                <img src="{{ news.image }}" class="card-img-top" alt="{{ news.title }}">
-                {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ news.title }}</h5>
-                    <h5 class="card-title">{{ news.title_en }}</h5>
-                    <p class="card-text">{{ news.description }}</p>
-                    <div>
-                        {% for tag in news.tags.all %}
-                        <a class="badge bg-secondary" href=/tag/{{ tag.slug }}>{{ tag.name }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <div class="card-footer">
-                    <a href="{{ news.link }}" class="btn btn-primary" target="_blank">Read Full Article</a>
-                    <a href="{{ news.archive_link }}" class="btn btn-secondary" target="_blank">View Archived</a>
-                </div>
+          <div class="card h-100">
+            {% if news.image %}
+              <img src="{{ news.image }}" class="card-img-top" alt="{{ news.title }}" />
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ news.title }}</h5>
+              <h5 class="card-title">{{ news.title_en }}</h5>
+              <p class="card-text">{{ news.description }}</p>
+              <div>
+                {% for tag in news.tags.all %}
+                  <a class="badge bg-secondary" href="{% url 'tagbase-view' tag.slug %}">{{ tag.name }}</a>
+                {% endfor %}
+              </div>
             </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-{% endblock content %}
 
+            <div class="card-footer">
+              <a href="{{ news.link }}" class="btn btn-primary" target="_blank">Read Full Article</a>
+              <a href="{{ news.archive_link }}" class="btn btn-secondary" target="_blank">View Archived</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
