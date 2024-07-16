@@ -1,6 +1,6 @@
-from .views import testrender
+from .views import NewsListView
 from django.urls import path
 
 urlpatterns = [
-    path("base/", testrender),
+    path("base/", NewsListView.as_view(), name="news-list"),
 ]

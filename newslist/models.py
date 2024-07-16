@@ -10,6 +10,9 @@ class News(models.Model):
     description = models.TextField(
         verbose_name="Description under 100 words.", null=True, blank=True
     )
+    image = models.URLField(
+        verbose_name="Image of incident if available", null=True, blank=True
+    )
     archive_link = models.URLField(verbose_name="URL for archive.org", null=True)
     tags = TaggableManager()
 
