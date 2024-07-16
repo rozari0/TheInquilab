@@ -33,5 +33,10 @@ class UserReport(models.Model):
     location = models.CharField(
         verbose_name="Your Location (X University)", null=True, max_length=100
     )
-    content = models.TextField(verbose_name="Description")
+    content = models.TextField(verbose_name="Description", blank=True, null=True)
     approved = models.BooleanField(default=False, blank=True)
+    report_time = models.DateTimeField(auto_now_add=True)
+    tags = TaggableManager(blank=True)
+
+    def __str__(self):
+        return self.title

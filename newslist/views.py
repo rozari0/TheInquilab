@@ -1,13 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic.list import ListView
-from .models import News
+from django.views.generic import DetailView
 from taggit.models import Tag
-from django.shortcuts import get_object_or_404
+
+from .forms import UserReportForm
+from .models import News, UserReport
 
 
 # Create your views here.
-def testrender(request):
-    return render(request, template_name="base.html")
+def report(request):
+    form = UserReportForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect("success")
+
+    return render(request, template_name="news/report.html", context={"form": form})
 
 
 class NewsListView(ListView):
@@ -24,3 +31,17 @@ def tagview(request, slug):
         template_name="news/newslist.html",
         context={"object_list": objects},
     )
+
+
+class ReportListView(ListView):
+    model = UserReport
+    paginate_by = 15
+    template_name = "news/reportlist.html"
+
+    def get_queryset(self):
+        return UserReport.objects.filter(approved=False)
+
+
+class ReportDetailView(DetailView):
+    model = UserReport
+    template_name = "news/reportdetail.html"

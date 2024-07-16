@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Quota Reform Protest Archive
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h2 class="card-title">{{ object.title }}</h2>
+        <p class="card-text">{{ object.report_time }}</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-subtitle mb-2 text-muted">{{ object.location }}</h5>
+        <p class="card-text">{{ object.content }}</p>
+        <div>
+          {% for tag in object.tags.all %}
+            <span class="badge bg-secondary">{{ tag.name }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

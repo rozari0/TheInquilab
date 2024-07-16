@@ -1,4 +1,34 @@
 {% extends 'base.html' %}
 {% block title %}
-Submit a report
-{% endblock title %}
+  Submit a report
+{% endblock %}
+{% block headerinclude %}
+  <script src="https://cdn.jsdelivr.net/npm/tinymce@7.2.1/tinymce.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tinymce@7.2.1/skins/ui/oxide/content.min.css" />
+{% endblock %}
+
+{% block content %}
+  <div class="">
+    <p class="alert alert-danger">Try to not include any of your personal information as it can/might be used by the dark force to find your identity.</p>
+    <p class="alert alert-info">
+      If you need to add image upload it to <a href="https://imgbb.com">imgbb</a> or <a href="https://imgur.com">Imgur</a> and add it using the image tool below.<br />
+      If you need to add a video upload it to youtube using a throwway account.
+    </p>
+  </div>
+  {% load crispy_forms_tags %}
+  <form method="POST" class="post-form">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input type="submit" class="save btn btn-primary" />
+  </form>
+{% endblock %}
+
+{% block footerinclude %}
+  <script>
+    tinymce.init({
+      selector: 'textarea#id_content',
+      plugins: ['advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media', 'table', 'help', 'wordcount'],
+      toolbar: 'undo redo | image media | blocks | ' + 'bold italic backcolor | alignleft aligncenter ' + 'alignright alignjustify | bullist numlist outdent indent | ' + 'removeformat | help'
+    })
+  </script>
+{% endblock %}

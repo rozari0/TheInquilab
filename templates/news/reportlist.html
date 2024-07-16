@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Quota Reform Protest Archive
+{% endblock title %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        {% for news in object_list %}
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                {% if news.image %}
+                <img src="{{ news.image }}" class="card-img-top" alt="{{ news.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ news.title }}</h5>
+                    <p class="card-text">{{ news.content }}</p>
+                    <div>
+                        {% for tag in news.tags.all %}
+                        <a class="badge bg-secondary" href=/tag/{{ tag.slug }}>{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <a href="{% url 'report-detail' news.id %}" class="btn btn-primary" target="_blank">Read Full Report</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+

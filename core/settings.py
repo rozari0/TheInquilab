@@ -49,7 +49,14 @@ INSTALLED_APPS += [
 
 INSTALLED_APPS += [
     "taggit",
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
+
+# Crispy Forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 # User
 AUTH_USER_MODEL = "user.CustomUser"
 

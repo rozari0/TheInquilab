@@ -9,9 +9,14 @@
 
 asgiref==3.8.1
     # via django
+crispy-bootstrap5==2024.2
 django==5.0.7
+    # via crispy-bootstrap5
+    # via django-crispy-forms
     # via django-taggit
     # via django-unfold
+django-crispy-forms==2.2
+    # via crispy-bootstrap5
 django-taggit==5.0.1
 django-unfold==0.30.0
 sqlparse==0.5.1
