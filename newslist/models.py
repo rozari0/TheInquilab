@@ -34,6 +34,9 @@ class UserReport(models.Model):
     location = models.CharField(
         verbose_name="Your Location (X University)", null=True, max_length=100
     )
+    image = models.URLField(
+        verbose_name="Image of incident if available", null=True, blank=True
+    )
     content = models.TextField(verbose_name="Description", blank=True, null=True)
     approved = models.BooleanField(default=False, blank=True)
     report_time = models.DateTimeField(auto_now_add=True)

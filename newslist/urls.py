@@ -11,6 +11,7 @@ urlpatterns = [
         lambda request: render(request, template_name="news/successreport.html"),
         name="success",
     ),
+    path("", lambda request: render(request, template_name="home.html"), name="home"),
     path("reports/", ReportListView.as_view(), name="report-list"),
     path("reports/<int:pk>/", ReportDetailView.as_view(), name="report-detail"),
 ]

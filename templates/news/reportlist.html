@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Quota Reform Protest Archive
+  User Report List - Quota Reform Protest Archive
 {% endblock %}
 
 {% block content %}
+  {% load bleach_tags %}
   <div class="container mt-5">
     <div class="row">
       {% for news in object_list %}
@@ -15,7 +16,7 @@
             {% endif %}
             <div class="card-body">
               <h5 class="card-title">{{ news.title }}</h5>
-              <p class="card-text">{{ news.content }}</p>
+              <p class="card-text">{{ news.content|bleach|truncatewords:50 }}</p>
               <div>
                 {% for tag in news.tags.all %}
                   <a class="badge bg-secondary" href="{% url 'tagbase-view' tag.slug %}">{{ tag.name }}</a>
@@ -24,7 +25,7 @@
             </div>
 
             <div class="card-footer">
-              <a href="{% url 'report-detail' news.id %}" class="btn btn-primary" target="_blank">Read Full Report</a>
+              <a href="{% url 'report-detail' news.id %}" class="btn btn-primary bg-blood" target="_blank">Read Full Report</a>
             </div>
           </div>
         </div>

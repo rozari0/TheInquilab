@@ -6,4 +6,4 @@ from .models import UserReport
 class UserReportForm(ModelForm):
     class Meta:
         model = UserReport
-        fields = ["title", "location", "content", "tags"]
+        fields = ["title", "location", "content", "tags", "image"]

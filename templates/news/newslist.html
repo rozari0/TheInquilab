@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+  {% load bleach_tags %}
   <div class="container mt-5">
     <div class="row">
       {% for news in object_list %}
@@ -16,7 +17,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ news.title }}</h5>
               <h5 class="card-title">{{ news.title_en }}</h5>
-              <p class="card-text">{{ news.description }}</p>
+              <p class="card-text">{{ news.description|bleach }}</p>
               <div>
                 {% for tag in news.tags.all %}
                   <a class="badge bg-secondary" href="{% url 'tagbase-view' tag.slug %}">{{ tag.name }}</a>
@@ -25,7 +26,7 @@
             </div>
 
             <div class="card-footer">
-              <a href="{{ news.link }}" class="btn btn-primary" target="_blank">Read Full Article</a>
+              <a href="{{ news.link }}" class="btn btn-primary bg-blood" target="_blank">Read Full Article</a>
               <a href="{{ news.archive_link }}" class="btn btn-secondary" target="_blank">View Archived</a>
             </div>
           </div>
