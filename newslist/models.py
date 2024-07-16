@@ -24,6 +24,7 @@ class News(models.Model):
 
     class Meta:
         verbose_name_plural = "News"
+        ordering = ["-id"]
 
     def __str__(self):
         return self.title_en + " | " + self.title
@@ -41,6 +42,9 @@ class UserReport(models.Model):
     approved = models.BooleanField(default=False, blank=True)
     report_time = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager(blank=True, through=BnTaggedItem)
+
+    class Meta:
+        ordering = ["-id"]
 
     def __str__(self):
         return self.title
