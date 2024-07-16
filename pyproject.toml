@@ -1,0 +1,17 @@
+[project]
+name = "quotaarchive"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "rozari0", email = "61970262+rozari0@users.noreply.github.com" }
+]
+dependencies = [
+    "django>=5.0.7",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = []
