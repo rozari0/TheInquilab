@@ -20,12 +20,15 @@ django==5.0.7
     # via django-crispy-forms
     # via django-jazzmin
     # via django-taggit
+    # via django-tinymce
     # via django-unfold
+django-autoslug==1.9.9
 django-bleach==3.1.0
 django-crispy-forms==2.2
     # via crispy-bootstrap5
 django-jazzmin==3.0.0
 django-taggit==5.0.1
+django-tinymce==4.1.0
 django-unfold==0.30.0
 python-decouple==3.8
 python-slugify==8.0.4

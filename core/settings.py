@@ -36,10 +36,11 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     "user",
     "newslist",
-    "mediapersonality",
+    "timeline",
 ]
 
 INSTALLED_APPS += [
+    "tinymce",
     "taggit",
     "crispy_forms",
     "crispy_bootstrap5",
@@ -120,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Dhaka"
 
 USE_I18N = True
 
@@ -172,3 +173,16 @@ BLEACH_STRIP_TAGS = False
 
 # Strip comments, or leave them in.
 BLEACH_STRIP_COMMENTS = False
+
+TINYMCE_DEFAULT_CONFIG = {
+    "theme": "silver",
+    "height": 500,
+    "menubar": False,
+    "plugins": "advlist,autolink,lists,link,image,charmap,print,preview,anchor,"
+    "searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,"
+    "code,help,wordcount",
+    "toolbar": "image media link | undo redo | formatselect | "
+    "bold italic backcolor | alignleft aligncenter "
+    "alignright alignjustify | bullist numlist outdent indent | "
+    "removeformat | help",
+}
