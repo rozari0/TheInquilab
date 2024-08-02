@@ -13,6 +13,9 @@ dependencies = [
     "crispy-bootstrap5>=2024.2",
     "python-slugify>=8.0.4",
     "django-bleach>=3.1.0",
+    "django-jazzmin>=3.0.0",
+    "python-decouple>=3.8",
+    "dj-database-url>=2.2.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
