@@ -1,6 +1,7 @@
-from django.urls import path
 from django.shortcuts import render
-from .views import NewsListView, report, tagview, ReportListView, ReportDetailView
+from django.urls import path
+
+from .views import NewsListView, ReportDetailView, ReportListView, report, tagview
 
 urlpatterns = [
     path("news/", NewsListView.as_view(), name="news-list"),

@@ -1,6 +1,6 @@
-from django.shortcuts import get_object_or_404, render, redirect
-from django.views.generic.list import ListView
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import DetailView
+from django.views.generic.list import ListView
 from taggit.models import Tag
 
 from .forms import UserReportForm

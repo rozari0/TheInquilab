@@ -1,5 +1,6 @@
 from django.db import models
 from taggit.managers import TaggableManager
+
 from .bn_taggit import BnTaggedItem
 
 

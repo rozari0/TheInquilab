@@ -1,7 +1,7 @@
-from django.db import models
-from tinymce.models import HTMLField
 from autoslug import AutoSlugField
+from django.db import models
 from slugify import slugify as translate
+from tinymce.models import HTMLField
 
 
 # Create your models here.

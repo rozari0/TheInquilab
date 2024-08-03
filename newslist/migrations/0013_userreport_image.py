@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("newslist", "0012_bntag_bntaggeditem_alter_userreport_content_and_more"),
     ]

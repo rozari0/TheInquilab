@@ -1,6 +1,6 @@
 from django.template.defaultfilters import slugify
-from taggit.models import Tag, TaggedItem
 from slugify import slugify as translate
+from taggit.models import Tag, TaggedItem
 
 
 class BnTag(Tag):
