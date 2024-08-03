@@ -1,7 +1,14 @@
 from django.shortcuts import render
 from django.urls import path
 
-from .views import NewsListView, ReportDetailView, ReportListView, report, tagview
+from .views import (
+    NewsListView,
+    ReportDetailView,
+    ReportListView,
+    report,
+    tagview,
+    HomepageView,
+)
 
 urlpatterns = [
     path("news/", NewsListView.as_view(), name="news-list"),
@@ -12,7 +19,7 @@ urlpatterns = [
         lambda request: render(request, template_name="news/successreport.html"),
         name="success",
     ),
-    path("", lambda request: render(request, template_name="home.html"), name="home"),
+    path("", HomepageView.as_view(), name="home"),
     path("reports/", ReportListView.as_view(), name="report-list"),
     path("reports/<int:pk>/", ReportDetailView.as_view(), name="report-detail"),
 ]

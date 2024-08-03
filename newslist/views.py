@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import DetailView
 from django.views.generic.list import ListView
+from django.views import View
 from taggit.models import Tag
 
 from .forms import UserReportForm
@@ -45,3 +46,9 @@ class ReportListView(ListView):
 class ReportDetailView(DetailView):
     model = UserReport
     template_name = "news/reportdetail.html"
+
+
+class HomepageView(View):
+    def get(self, request):
+        news = News.objects.all()[:4]
+        return render(request, template_name="home.html", context={"news_list": news})
