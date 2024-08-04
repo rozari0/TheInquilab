@@ -10,6 +10,9 @@ class Gallery(models.Model):
     class Meta:
         verbose_name_plural = "galleries"
 
+    def __str__(self):
+        return self.title
+
 
 class Image(models.Model):
     gallery = models.ForeignKey(
@@ -17,6 +20,9 @@ class Image(models.Model):
     )
     caption = models.CharField(verbose_name="Caption", max_length=500)
     link = models.URLField(verbose_name="Image url")
+
+    def __str__(self):
+        return self.caption[:50] if self.caption else self.id
 
 
 class Video(models.Model):

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+  Galleries - The Inqilab
+{% endblock %}
+
+{% block content %}
+  {% load bleach_tags %}
+  <div class="flex w-full h-full flex-col border-opacity-50">
+    {% for gallery in galleries %}
+      <div class="card bg-base-300 rounded-box grid place-items-center">
+        <h1>{{ gallery.title }}</h1>
+        {{ gallery.description|bleach }}
+        {% for image in gallery.image.all %}
+          <figure class="flex flex-col items-center">
+            <img class="w-full max-w-xs" src="{{ image.link }}" alt="" />
+            <figcaption class="mt-2 text-center text-gray-700">{{ image.caption }}</figcaption>
+          </figure>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
