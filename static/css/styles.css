@@ -1,0 +1,71 @@
+[data-theme='mytheme'] {
+    /* primary */
+    --p: 0 70% 60%; /* Light Red */
+    /* primary focus */
+    --pf: 0 80% 55%; /* Brighter Light Red */
+    /* primary content */
+    --pc: 0 0% 100%; /* White */
+  
+    /* secondary */
+    --s: 30 60% 70%; /* Light Orange */
+    /* secondary focus */
+    --sf: 30 70% 65%; /* Brighter Light Orange */
+    /* secondary content */
+    --sc: 0 0% 95%; /* Very Light Gray */
+  
+    /* accent */
+    --a: 0 50% 50%; /* Medium Red */
+    /* accent content */
+    --ac: 0 0% 98%; /* Near White */
+    /* accent focus */
+    --af: 0 55% 45%; /* Slightly Brighter Medium Red */
+  
+    /* info */
+    --in: 200 60% 80%; /* Light Blue */
+    /* info content */
+    --inc: 200 40% 40%; /* Medium Blue */
+  
+    /* success */
+    --su: 120 50% 60%; /* Light Green */
+    /* success content */
+    --suc: 120 40% 30%; /* Medium Green */
+  
+    /* warning */
+    --wa: 45 80% 80%; /* Light Yellow */
+    /* warning content */
+    --wac: 45 70% 50%; /* Medium Yellow */
+  
+    /* error */
+    --er: 0 70% 80%; /* Light Red */
+    /* error content */
+    --erc: 0 60% 50%; /* Medium Red */
+  
+    /* neutral */
+    --n: 0 0% 90%; /* Light Gray */
+    /* neutral focus */
+    --nf: 0 0% 85%; /* Slightly Darker Gray */
+    /* neutral content */
+    --nc: 0 0% 20%; /* Dark Gray */
+  
+    /* base 100 */
+    --b1: 0 0% 95%; /* Very Light Gray */
+    /* base 200 */
+    --b2: 0 0% 90%; /* Light Gray */
+    /* base 300 */
+    --b3: 0 0% 85%; /* Medium Gray */
+    /* base content */
+    --bc: 0 0% 15%; /* Dark Gray */
+  
+    /* other settings */
+    --rounded-box: 1rem;
+    --rounded-btn: 0.25rem;
+    --rounded-badge: 1.9rem;
+    --animation-btn: 0.25s;
+    --animation-input: 0.2s;
+    --btn-text-case: capitalize;
+    --btn-focus-scale: 0.95;
+    --border-btn: 1px;
+    --tab-border: 1px;
+    --tab-radius: 0.5rem;
+  }
+  

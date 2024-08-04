@@ -6,14 +6,14 @@
 
 {% block content %}
   {% load bleach_tags %}
-  <div class="container mt-5">
-    <div class="card">
-      <div class="card-header bg-blood text-white">
-        <h2 class="card-title">{{ event.title }}</h2>
-        <p class="card-text">{{ event.date }}</p>
+  <div class="container mx-auto px-4 py-6 lg:w-1/2 md:w-1/2">
+    <div class="card bg-base-100 shadow-lg rounded-lg">
+      <div class="card-header bg-primary text-primary-content p-4 rounded-t-lg">
+        <h2 class="text-2xl font-semibold">{{ event.title }}</h2>
+        <p class="text-sm">{{ event.date }}</p>
       </div>
-      <div class="card-body">
-        <p class="card-text">{{ event.description|bleach }}</p>
+      <div class="card-body p-4">
+        <p class="text-base">{{ event.description|bleach }}</p>
       </div>
     </div>
   </div>
