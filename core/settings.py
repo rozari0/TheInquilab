@@ -22,7 +22,8 @@ ALLOWED_HOSTS = ["*", "quotabd.pythonanywhere.com"]
 # Application definition
 
 INSTALLED_APPS = [
-    "jazzmin",  # Custom Admin
+    "admin_interface",
+    "colorfield",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
