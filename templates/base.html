@@ -89,6 +89,16 @@
       <p>The Inqilab. Made by Some Random Citizens.</p>
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuButton = document.querySelector('[data-collapse-toggle="navbar-default"]');
+      const menu = document.getElementById('navbar-default');
+  
+      menuButton.addEventListener('click', function () {
+        menu.classList.toggle('hidden');
+      });
+    });
+  </script>
   
 </body>
 </html>
