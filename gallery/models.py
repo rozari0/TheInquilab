@@ -7,6 +7,9 @@ class Gallery(models.Model):
     title = models.CharField(verbose_name="Title of the gallery", max_length=500)
     description = HTMLField(null=True, blank=True)
 
+    class Meta:
+        verbose_name_plural = "galleries"
+
 
 class Image(models.Model):
     gallery = models.ForeignKey(
