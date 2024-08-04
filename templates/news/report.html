@@ -12,20 +12,20 @@
 {% block content %}
   <div class="max-w-3xl mx-auto p-6">
     <!-- Alert messages -->
-    <div class="alert alert-error mb-6">
+    <div class="alert alert-error mb-6 shadow-md">
       <div class="flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 8v4M12 16h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
         </svg>
-        <p>For your safety, avoid including personal information that might be used to identify you.</p>
+        <p class="text-sm text-black">For your safety, avoid including personal information that might be used to identify you.</p>
       </div>
     </div>
-    <div class="alert alert-info mb-6">
+    <div class="alert alert-success mb-6 shadow-md">
       <div class="flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M13 16h-1v-4h1v4zm0-6h-1V7h1v3z"/>
         </svg>
-        <p>
+        <p class="text-sm text-black">
           To add an image, upload it to <a href="https://imgbb.com" class="link">imgbb</a> or <a href="https://imgur.com" class="link">Imgur</a> and then use the image tool below.<br />
           For video uploads, please use YouTube with a temporary or throwaway account.
         </p>
@@ -34,7 +34,7 @@
     
     <!-- Form -->
     {% load crispy_forms_tags %}
-    <form method="POST" class="space-y-6 bg-base-100 p-6 rounded-lg shadow-md">
+    <form method="POST" class="space-y-6 bg-base-200 p-6 rounded-lg shadow-md">
       {% csrf_token %}
       <div class="form-control">
         {{ form|crispy }}
