@@ -2,6 +2,7 @@ from django.db import models
 from taggit.managers import TaggableManager
 
 from .bn_taggit import BnTaggedItem
+from django.db.models.signals import pre_save
 
 
 # Create your models here.
@@ -9,7 +10,9 @@ class News(models.Model):
     title = models.CharField(verbose_name="News title in Bangla", max_length=1000)
     title_en = models.CharField(verbose_name="Title in English.", max_length=1000)
     link = models.URLField(verbose_name="News URL")
-    archive_link = models.URLField(verbose_name="URL for archive.org", null=True)
+    archive_link = models.URLField(
+        verbose_name="URL for archive.org", null=True, blank=True
+    )
     description = models.TextField(
         verbose_name="Description under 100 words.", null=True, blank=True
     )
@@ -29,6 +32,14 @@ class News(models.Model):
 
     def __str__(self):
         return self.title_en + " | " + self.title
+
+
+def news_pre_save(sender, instance, *args, **kwargs):
+    if instance.archive_link == "" or instance.archive_link is None:
+        instance.archive_link = f"https://web.archive.org/save/{instance.link}"
+
+
+pre_save.connect(news_pre_save, sender=News)
 
 
 class UserReport(models.Model):
