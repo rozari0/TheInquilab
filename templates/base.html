@@ -1,94 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      {% block title %}
-        My Site
-      {% endblock %}
-    </title>
-    {% load static %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}" />
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}" />
-    <link rel="manifest" href="{% static 'favicon//site.webmanifest' %}" />
-    <style>
-      body {
-        font-family: 'Roboto', sans-serif;
-      }
-      .bg-blood {
-        background-color: #880808;
-      }
+<html data-theme="cupcake" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    {% block title %}
+      My Site
+    {% endblock %}
+  </title>
+  {% load static %}
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@1.14.0/dist/full.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}" />
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}" />
+  <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 40;
+    }
+    .overlay.active {
+      display: block;
+    }
+  </style>
+  {% block headerinclude %}
+
+  {% endblock %}
+</head>
+<body class="bg-base-100 text-base-content">
+
+  <!-- Header Component -->
+  <header class="bg-base-300 shadow-lg my-4 mx-8">
+    <div class="container mx-auto p-4 flex items-center justify-between">
+      <!-- Logo and Brand -->
+      <a href="/" class="text-2xl font-bold text-primary">News Website</a>
       
-      .card-body img {
-        max-width: 100%;
-        height: auto;
-      }
-      .card-body iframe {
-        max-width: 100%;
-        height: auto;
-      }
-      .btn-blood {
-        background-color: #880808;
-        color: #fff;
-      }
-      .btn-group .btn {
-        margin: 5px;
-      }
-      footer {
-        background-color: #f8f9fa;
-        padding: 20px 0;
-        text-align: center;
-        font-family: 'Roboto', sans-serif;
-        color: #333;
-        margin-top: 40px;
-      }
-    </style>
-    {% block headerinclude %}
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="btn btn-square btn-ghost lg:hidden md:hidden"
+        aria-label="Toggle menu"
+        
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-6 w-6 stroke-current">
+          <path id="mobile-menu-icon" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
 
-    {% endblock %}
-  </head>
-  <body class="bg-light text-dark">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-blood">
-      <div class="container">
-        <a class="navbar-brand">Quota Reform Protest Archive</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'news-list' %}">News</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'timeline' %}">Timeline</a>
-            </li>
-            <!--      
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'report-view' %}">Report</a>
-            </li>
-                  -->
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <div class="container mt-4">
-      {% block content %}
-
-      {% endblock %}
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="{% url 'home' %}" class="text-lg hover:bg-base-100 py-2 px-4 rounded-lg transition-colors duration-300">Home</a>
+        <a href="{% url 'news-list' %}" class="text-lg hover:bg-base-100 py-2 px-4 rounded-lg transition-colors duration-300">News</a>
+        <a href="{% url 'timeline' %}" class="text-lg hover:bg-base-100 py-2 px-4 rounded-lg transition-colors duration-300">Timeline</a>
+      </nav>
     </div>
-    {% block footerinclude %}
+
+    <!-- Full-Screen Menu Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-base-100 z-50 transition-transform duration-300 transform translate-x-full md:hidden">
+      <div class="flex flex-col h-full p-4">
+        <button id="mobile-menu-close-button" class="text-2xl self-end mb-4" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 stroke-current">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <nav class="flex flex-col items-center flex-grow">
+          <a href="{% url 'home' %}" class="text-xl py-4 px-6 rounded-lg hover:bg-base-200 transition-colors duration-300" onclick="toggleMobileMenu()">Home</a>
+          <a href="{% url 'news-list' %}" class="text-xl py-4 px-6 rounded-lg hover:bg-base-200 transition-colors duration-300" onclick="toggleMobileMenu()">News</a>
+          <a href="{% url 'timeline' %}" class="text-xl py-4 px-6 rounded-lg hover:bg-base-200 transition-colors duration-300" onclick="toggleMobileMenu()">Timeline</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto mt-4">
+    {% block content %}
 
     {% endblock %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <footer>
-      <div class="container">
-        <p>Made by Some Random Citizen, no rights reserved.</p>
-      </div>
-    </footer>
-  </body>
+  </main>
+
+  {% block footerinclude %}
+
+  {% endblock %}
+  
+  <footer class="footer bg-base-300 text-base-content py-4 mt-8">
+    <div class="container mx-auto text-center">
+      <p>Made by Some Random Citizen, no rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const closeButton = document.getElementById('mobile-menu-close-button');
+      const overlay = document.getElementById('overlay');
+
+      const toggleMobileMenu = () => {
+        const isOpen = !mobileMenu.classList.contains('translate-x-full');
+        if (isOpen) {
+          mobileMenu.classList.add('translate-x-full');
+          mobileMenu.classList.remove('translate-x-0');
+          overlay.classList.remove('active');
+        } else {
+          mobileMenu.classList.remove('translate-x-full');
+          mobileMenu.classList.add('translate-x-0');
+          overlay.classList.add('active');
+        }
+      };
+
+      mobileMenuButton.addEventListener('click', toggleMobileMenu);
+      closeButton.addEventListener('click', toggleMobileMenu);
+      overlay.addEventListener('click', toggleMobileMenu);
+    });
+  </script>
+</body>
 </html>
