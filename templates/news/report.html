@@ -1,26 +1,47 @@
 {% extends 'base.html' %}
+
 {% block title %}
-  Submit a report
+  Submit a Report
 {% endblock %}
+
 {% block headerinclude %}
   <script src="https://cdn.jsdelivr.net/npm/tinymce@7.2.1/tinymce.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tinymce@7.2.1/skins/ui/oxide/content.min.css" />
 {% endblock %}
 
 {% block content %}
-  <div class="">
-    <p class="alert alert-danger">Try to not include any of your personal information as it can/might be used by the dark force to find your identity.</p>
-    <p class="alert alert-info">
-      If you need to add image upload it to <a href="https://imgbb.com">imgbb</a> or <a href="https://imgur.com">Imgur</a> and add it using the image tool below.<br />
-      If you need to add a video upload it to youtube using a throwway account.
-    </p>
+  <div class="max-w-3xl mx-auto p-6">
+    <!-- Alert messages -->
+    <div class="alert alert-error mb-6">
+      <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 8v4M12 16h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+        </svg>
+        <p>For your safety, avoid including personal information that might be used to identify you.</p>
+      </div>
+    </div>
+    <div class="alert alert-info mb-6">
+      <div class="flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 16h-1v-4h1v4zm0-6h-1V7h1v3z"/>
+        </svg>
+        <p>
+          To add an image, upload it to <a href="https://imgbb.com" class="link">imgbb</a> or <a href="https://imgur.com" class="link">Imgur</a> and then use the image tool below.<br />
+          For video uploads, please use YouTube with a temporary or throwaway account.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Form -->
+    {% load crispy_forms_tags %}
+    <form method="POST" class="space-y-6 bg-base-100 p-6 rounded-lg shadow-md">
+      {% csrf_token %}
+      <div class="form-control">
+        {{ form|crispy }}
+      </div>
+      <button type="submit" class="btn btn-primary w-full">Submit Report</button>
+    </form>
   </div>
-  {% load crispy_forms_tags %}
-  <form method="POST" class="post-form">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <input type="submit" class="save btn btn-primary" />
-  </form>
 {% endblock %}
 
 {% block footerinclude %}
@@ -28,7 +49,8 @@
     tinymce.init({
       selector: 'textarea#id_content',
       plugins: ['advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media', 'table', 'help', 'wordcount'],
-      toolbar: 'undo redo | image media | blocks | ' + 'bold italic backcolor | alignleft aligncenter ' + 'alignright alignjustify | bullist numlist outdent indent | ' + 'removeformat | help'
-    })
+      toolbar: 'undo redo | image media | blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+      menubar: false
+    });
   </script>
 {% endblock %}
