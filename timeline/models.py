@@ -1,6 +1,6 @@
 from autoslug import AutoSlugField
 from django.db import models
-from slugify import slugify as translate
+from django.urls import reverse
 from tinymce.models import HTMLField
 
 
@@ -21,3 +21,6 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("event", kwargs={"slug": self.slug})

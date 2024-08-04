@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from taggit.managers import TaggableManager
 
 from .bn_taggit import BnTaggedItem
@@ -32,6 +33,9 @@ class News(models.Model):
 
     def __str__(self):
         return self.title_en + " | " + self.title
+
+    def get_absolute_url(self):
+        return self.archive_link
 
 
 def news_pre_save(sender, instance, *args, **kwargs):
