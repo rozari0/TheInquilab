@@ -6,4 +6,5 @@ urlpatterns = [
     path("", include("newslist.urls")),
     path("", include("timeline.urls")),
     path("tinymce/", include("tinymce.urls")),
+    path("galleries/", include("gallery.urls")),
 ]
