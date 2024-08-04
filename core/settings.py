@@ -37,6 +37,7 @@ INSTALLED_APPS += [
     "user",
     "newslist",
     "timeline",
+    "gallery",
 ]
 
 INSTALLED_APPS += [
