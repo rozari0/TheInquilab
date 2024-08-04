@@ -20,7 +20,7 @@ def report(request):
 
 class NewsListView(ListView):
     model = News
-    paginate_by = 15
+    paginate_by =5
     template_name = "news/newslist.html"
 
 
