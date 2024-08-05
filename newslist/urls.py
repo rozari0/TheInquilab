@@ -2,12 +2,13 @@ from django.shortcuts import render
 from django.urls import path
 
 from .views import (
+    HomepageView,
     NewsListView,
     ReportDetailView,
     ReportListView,
     report,
     tagview,
-    HomepageView,
+    MartyrListView,
 )
 
 urlpatterns = [
@@ -22,4 +23,5 @@ urlpatterns = [
     path("", HomepageView.as_view(), name="home"),
     path("reports/", ReportListView.as_view(), name="report-list"),
     path("reports/<int:pk>/", ReportDetailView.as_view(), name="report-detail"),
+    path("martyrs/", MartyrListView.as_view(), name="martyrs"),
 ]

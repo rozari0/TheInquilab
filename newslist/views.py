@@ -1,11 +1,11 @@
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views import View
 from django.views.generic import DetailView
 from django.views.generic.list import ListView
-from django.views import View
 from taggit.models import Tag
 
 from .forms import UserReportForm
-from .models import News, UserReport
+from .models import News, UserReport, Martyr
 
 
 # Create your views here.
@@ -20,7 +20,7 @@ def report(request):
 
 class NewsListView(ListView):
     model = News
-    paginate_by =5
+    paginate_by = 5
     template_name = "news/newslist.html"
 
 
@@ -52,3 +52,10 @@ class HomepageView(View):
     def get(self, request):
         news = News.objects.all()[:4]
         return render(request, template_name="home.html", context={"news_list": news})
+
+
+class MartyrListView(ListView):
+    model = Martyr
+    paginate_by = 5
+    context_object_name = "martyrs"
+    template_name = "martyrs/martyrs.html"

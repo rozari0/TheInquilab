@@ -189,7 +189,7 @@ TINYMCE_DEFAULT_CONFIG = {
     "removeformat | help",
 }
 
-if DEBUG:
+"""if DEBUG:
     CACHES = {
         "default": {
             "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
@@ -203,3 +203,4 @@ else:
             "LOCATION": "my_cache_table",
         }
     }
+"""

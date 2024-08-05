@@ -1,9 +1,10 @@
 from django.db import models
+from django.db.models.signals import pre_save
 from django.urls import reverse
 from taggit.managers import TaggableManager
+from tinymce.models import HTMLField
 
 from .bn_taggit import BnTaggedItem
-from django.db.models.signals import pre_save
 
 
 # Create your models here.
@@ -64,3 +65,9 @@ class UserReport(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Martyr(models.Model):
+    name = models.CharField(verbose_name="Name", max_length=100)
+    description = HTMLField(verbose_name="Description of martyr")
+    image = models.URLField(verbose_name="Image of the martyr")

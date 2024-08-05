@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="martyrs">
+    {% load bleach_tags %}
+    {% for martyr in martyrs %}
+      <div class="card">
+        <img src="{{ martyr.image }}" alt="Photo of {{ martyr.name }}" />
+        <h1>{{ martyr.name }}</h1>
+        <div class="description">{{ martyr.description|bleach }}</div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
