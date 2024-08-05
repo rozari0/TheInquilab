@@ -147,7 +147,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Which HTML tags are allowed
-BLEACH_ALLOWED_TAGS = ["p", "b", "i", "u", "em", "strong", "a", "iframe", "img"]
+BLEACH_ALLOWED_TAGS = ["p", "b", "i", "u", "em", "strong", "a", "iframe", "img", "br"]
 
 # Which HTML attributes are allowed
 BLEACH_ALLOWED_ATTRIBUTES = [
