@@ -1,6 +1,5 @@
 from django.db import models
 from django.db.models.signals import pre_save
-from django.urls import reverse
 from taggit.managers import TaggableManager
 from tinymce.models import HTMLField
 
@@ -75,3 +74,6 @@ class Martyr(models.Model):
 
     class Meta:
         ordering = ["death", "name"]
+
+    def __str__(self):
+        return self.name

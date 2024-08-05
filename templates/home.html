@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  Quota Reform Movement
+  The Inquilab
 {% endblock %}
 
-{% block content %}
+{% block comment %}
+  <!--                   
   <div class="p-4">
     <figure class="relative w-full rounded-lg overflow-hidden">
       <img src="https://cdn.bdnews24.com/bdnews24/media/bangla/imgAll/2024July/clash-du-quota-protest-150724-14-1721052007.jpg" class="w-full h-40 object-cover" alt="Bangladesh Chhatra League activists attacked students protesting against freedom fighter quota in government jobs at Dhaka University" />
@@ -20,11 +21,31 @@
       </p>
     </div>
   </div>
+                   -->
+{% endblock %}
+
+{% block content %}
+  <div class="p-4">
+    <figure class="relative w-full rounded-lg overflow-hidden">
+      <img src="https://i.imgur.com/drDSigI.png" class="w-full object-cover" alt="Sheikh Hasina resigns from the Prime Ministership" />
+      <figcaption class="text-center text-sm mt-2">Sheikh Hasina resigns from the Prime Ministership</figcaption>
+    </figure>
+
+    <div class="info p-4 bg-base-200 rounded-lg mt-4">
+      <h3 class="text-2xl mb-3 text-red-600 font-semibold">Sheikh Hasina resigns from the&nbsp;<del>Prime Ministership</del>&nbsp;dictatorship</h3>
+      <p>Bangladeshi Prime Minister Sheikh Hasina has resigned after weeks of deadly anti-government protests, ending her more than two-decade-long dominance in the country's politics. The protests, sparked by her government's actions, resulted in the deaths of over 300 people during an anti-quota demonstration.</p>
+      <p class="mb-4">This project aims to document all attacks carried out by the police and BCL on students.</p>
+      <!--      
+      <p>
+        If you’re a protester and something is happening in your area, please take a photo or video and report it to us using the <a href="{% url 'report-view' %}" class="text-red-600 underline">Report Option</a> in the navbar.
+      </p>      -->
+    </div>
+  </div>
 
   <div class="flex justify-center mt-4 space-x-2">
     <a href="{% url 'news-list' %}" class="btn btn-primary btn-sm">News Archive</a>
-    <a href="{% url 'report-list' %}" class="btn btn-primary btn-sm">Student Reports</a>
-    <a href="{% url 'report-view' %}" class="btn btn-primary btn-sm">Report Incident</a>
+    <a href="{% url 'timeline' %}" class="btn btn-primary btn-sm">Timeline</a>
+    <a href="{% url 'martyrs' %}" class="btn btn-primary btn-sm">Martyrs</a>
   </div>
 
   {% load bleach_tags %}
@@ -35,23 +56,19 @@
           <div class="shadow-lg rounded-lg overflow-hidden border bg-base-100 border-accent">
             {% if news.image %}
               <div class="relative">
-                <img src="{{ news.image }}" class="w-full h-40 object-cover" alt="{{ news.title }}" />
+                <img src="{{ news.image }}" loading="lazy" class="w-full h-80 object-cover" alt="{{ news.title }}" />
                 {% if news.newspaperName %}
-                  <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
-                    {{ news.newspaperName }}
-                  </div>
+                  <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">{{ news.newspaperName }}</div>
                 {% endif %}
                 {% if type == 'submitted' %}
-                  <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
-                    Public
-                  </div>
+                  <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">Public</div>
                 {% endif %}
               </div>
             {% endif %}
             <div class="p-6">
               <h3 class="text-xl font-semibold mb-2">{{ news.title }}</h3>
               <p class="mb-4 text-sm">
-                {{ news.description|slice:":100" }}{% if news.description|length > 100 %}...{% endif %}
+                {{ news.description|slice:':100' }}{% if news.description|length > 100 %}...{% endif %}
               </p>
               <div class="flex justify-between items-center">
                 <a href="{{ news.link }}" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Read Full Article</a>
