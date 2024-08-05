@@ -77,3 +77,10 @@ class Martyr(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class LongDescription(models.Model):
+    martyr_model = models.OneToOneField(
+        Martyr, models.CASCADE, related_name="long_description"
+    )
+    description = HTMLField(verbose_name="Description of martyr")

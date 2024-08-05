@@ -3,12 +3,12 @@ from django.urls import path
 
 from .views import (
     HomepageView,
+    MartyrListView,
     NewsListView,
     ReportDetailView,
     ReportListView,
     report,
     tagview,
-    MartyrListView,
 )
 
 urlpatterns = [

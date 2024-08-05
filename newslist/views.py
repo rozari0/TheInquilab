@@ -5,7 +5,7 @@ from django.views.generic.list import ListView
 from taggit.models import Tag
 
 from .forms import UserReportForm
-from .models import News, UserReport, Martyr
+from .models import Martyr, News, UserReport
 
 
 # Create your views here.
