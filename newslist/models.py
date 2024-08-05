@@ -68,7 +68,7 @@ class UserReport(models.Model):
 
 class Martyr(models.Model):
     name = models.CharField(verbose_name="Name", max_length=100)
-    description = HTMLField(verbose_name="Description of martyr")
+    short_description = HTMLField(verbose_name="Short Description of martyr")
     image = models.URLField(verbose_name="Image of the martyr")
     death = models.DateField(verbose_name="Date of death", null=True, blank=True)
 

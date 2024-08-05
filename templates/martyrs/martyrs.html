@@ -16,7 +16,7 @@
           </figure>
           <div class="card-body">
             <h2 class="card-title">{{ martyr.name }}</h2>
-            <div class="description">{{ martyr.description|bleach }}</div>
+            <div class="description">{{ martyr.short_description|bleach }}</div>
           </div>
         </div>
       {% endfor %}
