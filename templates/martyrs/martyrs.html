@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="martyrs">
+  <div class="container mx-auto px-4 py-8">
     {% load bleach_tags %}
-    {% for martyr in martyrs %}
-      <div class="card">
-        <img src="{{ martyr.image }}" alt="Photo of {{ martyr.name }}" />
-        <h1>{{ martyr.name }}</h1>
-        <div class="description">{{ martyr.description|bleach }}</div>
-      </div>
-    {% endfor %}
+    <h1 class="text-4xl font-extrabold text-center mb-12 text-primary">Martyrs of Andolon</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {% for martyr in martyrs %}
+        <div class="relative overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl transition-shadow duration-300">
+          <img src="{{ martyr.image }}" alt="Photo of {{ martyr.name }}" class="object-cover w-full h-64 transition-opacity duration-300 group-hover:opacity-40" />
+          <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center text-center p-6 opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <h2 class="text-3xl font-semibold text-white mb-3">{{ martyr.name }}</h2>
+            <p class="text-base text-gray-300 mb-4">{{ martyr.death }}</p>
+            <div class="text-white">{{ martyr.description|bleach }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 {% endblock %}
