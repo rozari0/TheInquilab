@@ -14,6 +14,11 @@
       </div>
       <div class="card-body p-4">
         <p class="text-base">{{ event.description|bleach }}</p>
+        {% if event.read_more %}
+          <hr />
+          <h1 class="text-xl">Read More:</h1>
+          <p class="text-base">{{ event.read_more|bleach }}</p>
+        {% endif %}
       </div>
     </div>
   </div>

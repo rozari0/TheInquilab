@@ -9,7 +9,8 @@ class Event(models.Model):
     title = models.CharField(
         verbose_name="A small title for the event.", max_length=250
     )
-    description = HTMLField(verbose_name="Description")
+    description = HTMLField(verbose_name="Read More")
+    read_more = HTMLField(verbose_name="Description", null=True, blank=True)
     date = models.DateField(verbose_name="Date of the occerence")
     time = models.TimeField(verbose_name="Time of incident.", blank=True, null=True)
 
