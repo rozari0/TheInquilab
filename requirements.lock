@@ -11,6 +11,8 @@ asgiref==3.8.1
     # via django
 bleach==5.0.1
     # via django-bleach
+brotli==1.1.0
+    # via whitenoise
 crispy-bootstrap5==2024.2
 crispy-tailwind==1.0.3
 dj-database-url==2.2.0
@@ -56,3 +58,4 @@ tzdata==2024.1
 webencodings==0.5.1
     # via bleach
     # via tinycss2
+whitenoise==6.7.0

@@ -20,6 +20,7 @@ dependencies = [
     "django-admin-interface>=0.28.8",
     "gunicorn>=22.0.0",
     "psycopg2>=2.9.9",
+    "whitenoise[brotli]>=6.7.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
