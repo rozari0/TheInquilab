@@ -37,6 +37,7 @@ packaging==24.1
     # via gunicorn
 pillow==10.4.0
     # via django-colorfield
+psycopg2==2.9.9
 python-decouple==3.8
 python-slugify==8.0.4
     # via django-admin-interface

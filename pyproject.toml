@@ -19,6 +19,7 @@ dependencies = [
     "crispy-tailwind>=1.0.3",
     "django-admin-interface>=0.28.8",
     "gunicorn>=22.0.0",
+    "psycopg2>=2.9.9",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
