@@ -8,14 +8,14 @@
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-extrabold text-center mb-12 text-primary">Martyrs of Andolon</h1>
     {% load bleach_tags %}
-    <div class="flex space-x-4 border-red-900">
+    <div class="flex flex-wrap justify-center space-x-0 sm:space-x-4 space-y-4 sm:space-y-0">
       {% for martyr in martyrs %}
-        <div class="card card-compact bg-base-100 w-96 shadow-xl">
+        <div class="card card-compact bg-base-100 w-full sm:w-96 shadow-xl mx-2">
           <figure>
-            <img src="{{ martyr.image }}" alt="Shoes" />
+            <img src="{{ martyr.image }}" alt="{{ martyr.name }}" />
           </figure>
           <div class="card-body">
-            <h2 class="card-title">{{ martyr.name }}</h2>
+            <h2 class="card-title text-lg font-bold">{{ martyr.name }}</h2>
             <div class="description">{{ martyr.short_description|bleach }}</div>
           </div>
         </div>
