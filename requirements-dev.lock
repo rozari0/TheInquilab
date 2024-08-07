@@ -32,6 +32,9 @@ django-crispy-forms==2.2
     # via crispy-tailwind
 django-taggit==5.0.1
 django-tinymce==4.1.0
+gunicorn==22.0.0
+packaging==24.1
+    # via gunicorn
 pillow==10.4.0
     # via django-colorfield
 python-decouple==3.8
