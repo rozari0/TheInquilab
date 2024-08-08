@@ -46,31 +46,13 @@ def news_pre_save(sender, instance, *args, **kwargs):
 pre_save.connect(news_pre_save, sender=News)
 
 
-class UserReport(models.Model):
-    title = models.CharField(verbose_name="Title", max_length=1000)
-    location = models.CharField(
-        verbose_name="Your Location (X University)", null=True, max_length=100
-    )
-    image = models.URLField(
-        verbose_name="Image of incident if available", null=True, blank=True
-    )
-    content = models.TextField(verbose_name="Description", blank=True, null=True)
-    approved = models.BooleanField(default=False, blank=True)
-    report_time = models.DateTimeField(auto_now_add=True)
-    tags = TaggableManager(blank=True, through=BnTaggedItem)
-
-    class Meta:
-        ordering = ["-id"]
-
-    def __str__(self):
-        return self.title
-
-
 class Martyr(models.Model):
     name = models.CharField(verbose_name="Name", max_length=100)
     short_description = HTMLField(verbose_name="Short Description of martyr")
     image = models.URLField(verbose_name="Image of the martyr")
+    birth = models.DateField(verbose_name="Date of birth", null=True, blank=True)
     death = models.DateField(verbose_name="Date of death", null=True, blank=True)
+    approved = models.BooleanField(default=False, blank=True)
 
     class Meta:
         ordering = ["death", "name"]

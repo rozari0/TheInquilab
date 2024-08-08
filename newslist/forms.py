@@ -1,9 +1,12 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, DateField, DateInput
 
-from .models import UserReport
+from .models import Martyr
 
 
-class UserReportForm(ModelForm):
+class MartyrReportForm(ModelForm):
+    birth = DateField(widget=DateInput(attrs={"type": "date"}), required=False)
+    death = DateField(widget=DateInput(attrs={"type": "date"}), required=False)
+
     class Meta:
-        model = UserReport
-        fields = ["title", "location", "content", "tags", "image"]
+        model = Martyr
+        exclude = ("approved",)

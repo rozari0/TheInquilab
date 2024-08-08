@@ -1,21 +1,22 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
-from django.views.generic import DetailView
 from django.views.generic.list import ListView
 from taggit.models import Tag
 
-from .forms import UserReportForm
-from .models import Martyr, News, UserReport
+from .forms import MartyrReportForm
+from .models import Martyr, News
 
 
 # Create your views here.
 def report(request):
-    form = UserReportForm(request.POST or None)
+    form = MartyrReportForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect("success")
 
-    return render(request, template_name="news/report.html", context={"form": form})
+    return render(request, template_name="martyrs/report.html", context={"form": form})
 
 
 class NewsListView(ListView):
@@ -34,20 +35,6 @@ def tagview(request, slug):
     )
 
 
-class ReportListView(ListView):
-    model = UserReport
-    paginate_by = 15
-    template_name = "news/reportlist.html"
-
-    def get_queryset(self):
-        return UserReport.objects.filter(approved=False)
-
-
-class ReportDetailView(DetailView):
-    model = UserReport
-    template_name = "news/reportdetail.html"
-
-
 class HomepageView(View):
     def get(self, request):
         news = News.objects.all()[:4]
@@ -59,3 +46,6 @@ class MartyrListView(ListView):
     paginate_by = 5
     context_object_name = "martyrs"
     template_name = "martyrs/martyrs.html"
+
+    def get_queryset(self) -> QuerySet[Any]:
+        return Martyr.objects.filter(approved=True)
