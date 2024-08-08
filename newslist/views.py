@@ -56,7 +56,7 @@ class HomepageView(View):
 
 class MartyrListView(ListView):
     model = Martyr
-    paginate_by = 5
+    paginate_by = 30
     context_object_name = "martyrs"
     template_name = "martyrs/martyrs.html"
 
