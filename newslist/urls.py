@@ -4,15 +4,17 @@ from django.urls import path
 from .views import (
     HomepageView,
     MartyrListView,
+    NewsReport,
     NewsListView,
-    report,
+    MartyrReport,
     tagview,
 )
 
 urlpatterns = [
     path("news/", NewsListView.as_view(), name="news-list"),
     path("tag/<slug:slug>", tagview, name="tagbase-view"),
-    path("report/", report, name="report-view"),
+    path("report/martyr/", MartyrReport, name="report-martyr"),
+    path("report/news/", NewsReport, name="report-news"),
     path(
         "success/",
         lambda request: render(request, template_name="news/successreport.html"),

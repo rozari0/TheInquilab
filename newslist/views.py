@@ -10,7 +10,7 @@ from .models import Martyr, News
 
 
 # Create your views here.
-def report(request):
+def MartyrReport(request):
     form = MartyrReportForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -23,6 +23,15 @@ class NewsListView(ListView):
     model = News
     paginate_by = 5
     template_name = "news/newslist.html"
+
+
+def NewsReport(request):
+    form = MartyrReportForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect("success")
+
+    return render(request, template_name="martyrs/report.html", context={"form": form})
 
 
 def tagview(request, slug):

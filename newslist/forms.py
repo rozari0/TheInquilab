@@ -10,3 +10,9 @@ class MartyrReportForm(ModelForm):
     class Meta:
         model = Martyr
         exclude = ("approved",)
+
+
+class NewsReportForm(ModelForm):
+    class Meta:
+        model = Martyr
+        exclude = ("approved",)

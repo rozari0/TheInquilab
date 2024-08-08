@@ -8,8 +8,7 @@ from .bn_taggit import BnTaggedItem
 
 # Create your models here.
 class News(models.Model):
-    title = models.CharField(verbose_name="News title in Bangla", max_length=1000)
-    title_en = models.CharField(verbose_name="Title in English.", max_length=1000)
+    title = models.CharField(verbose_name="News title", max_length=1000)
     link = models.URLField(verbose_name="News URL")
     archive_link = models.URLField(
         verbose_name="URL for archive.org", null=True, blank=True
@@ -25,6 +24,7 @@ class News(models.Model):
         blank=True,
         verbose_name="Is someone has been unalived in this news?: ",
     )
+    approved = models.BooleanField(verbose_name="Is Approved By admin?: ", default=True)
     tags = TaggableManager(through=BnTaggedItem)
 
     class Meta:
@@ -32,7 +32,7 @@ class News(models.Model):
         ordering = ["-id"]
 
     def __str__(self):
-        return self.title_en + " | " + self.title
+        return self.title
 
     def get_absolute_url(self):
         return self.archive_link
