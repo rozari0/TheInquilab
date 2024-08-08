@@ -8,23 +8,31 @@ from .bn_taggit import BnTaggedItem
 
 # Create your models here.
 class News(models.Model):
-    title = models.CharField(verbose_name="News title", max_length=1000)
-    link = models.URLField(verbose_name="News URL")
+    title = models.CharField(max_length=1000, help_text="Enter the title of the news.")
+    link = models.URLField(help_text="Provide the link to the original news article.")
     archive_link = models.URLField(
-        verbose_name="URL for archive.org", null=True, blank=True
+        null=True,
+        blank=True,
+        help_text="Optional: Provide a link to the archived version of the news.",
     )
     description = models.TextField(
-        verbose_name="Description under 100 words.", null=True, blank=True
+        null=True,
+        blank=True,
+        help_text="Optional: Enter a brief description of the news.",
     )
     image = models.URLField(
-        verbose_name="Image of incident if available", null=True, blank=True
+        null=True,
+        blank=True,
+        help_text="Optional: Provide a URL to an image related to the news.",
     )
     is_killed = models.BooleanField(
         default=False,
         blank=True,
-        verbose_name="Is someone has been unalived in this news?: ",
+        help_text="Check this box if the news relates to a fatal incident.",
     )
-    approved = models.BooleanField(verbose_name="Is Approved By admin?: ", default=True)
+    approved = models.BooleanField(
+        help_text="Indicate whether the news is approved by an admin.", default=False
+    )
     tags = TaggableManager(through=BnTaggedItem)
 
     class Meta:
@@ -47,12 +55,24 @@ pre_save.connect(news_pre_save, sender=News)
 
 
 class Martyr(models.Model):
-    name = models.CharField(verbose_name="Name", max_length=100)
-    short_description = HTMLField(verbose_name="Short Description of martyr")
-    image = models.URLField(verbose_name="Image of the martyr")
-    birth = models.DateField(verbose_name="Date of birth", null=True, blank=True)
-    death = models.DateField(verbose_name="Date of death", null=True, blank=True)
-    approved = models.BooleanField(default=False, blank=True)
+    name = models.CharField(
+        max_length=100, help_text="Enter the full name of the martyr."
+    )
+    short_description = HTMLField(
+        help_text="Provide a brief description of the martyr's life and legacy."
+    )
+    image = models.URLField(help_text="Provide a URL to an image of the martyr.")
+    birth = models.DateField(
+        null=True, blank=True, help_text="Optional: Enter the birth date of the martyr."
+    )
+    death = models.DateField(
+        null=True, blank=True, help_text="Optional: Enter the death date of the martyr."
+    )
+    approved = models.BooleanField(
+        default=False,
+        blank=True,
+        help_text="Indicate whether the martyr's information is approved by an admin.",
+    )
 
     class Meta:
         ordering = ["death", "name"]

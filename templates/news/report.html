@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Submit a Report
+{% endblock %}
+
+{% block headerinclude %}
+  <script src="https://cdn.jsdelivr.net/npm/tinymce@7.2.1/tinymce.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tinymce@7.2.1/skins/ui/oxide/content.min.css" />
+{% endblock %}
+
+{% block content %}
+  <div class="max-w-3xl mx-auto p-6">
+    <!-- Form -->
+    {% load crispy_forms_tags %}
+    <form method="POST" class="space-y-6 bg-base-200 p-6 rounded-lg shadow-md">
+      <h1 class="text-2xl">Add News</h1>
+      {% csrf_token %}
+      <div class="form-control">{{ form|crispy }}</div>
+      <button type="submit" class="btn btn-primary w-full">Submit News</button>
+    </form>
+  </div>
+{% endblock %}

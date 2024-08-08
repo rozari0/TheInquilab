@@ -5,7 +5,7 @@ from django.views import View
 from django.views.generic.list import ListView
 from taggit.models import Tag
 
-from .forms import MartyrReportForm
+from .forms import MartyrReportForm, NewsReportForm
 from .models import Martyr, News
 
 
@@ -26,12 +26,12 @@ class NewsListView(ListView):
 
 
 def NewsReport(request):
-    form = MartyrReportForm(request.POST or None)
+    form = NewsReportForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect("success")
 
-    return render(request, template_name="martyrs/report.html", context={"form": form})
+    return render(request, template_name="news/report.html", context={"form": form})
 
 
 def tagview(request, slug):

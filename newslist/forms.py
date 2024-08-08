@@ -1,6 +1,6 @@
 from django.forms import ModelForm, DateField, DateInput
 
-from .models import Martyr
+from .models import Martyr, News
 
 
 class MartyrReportForm(ModelForm):
@@ -14,5 +14,5 @@ class MartyrReportForm(ModelForm):
 
 class NewsReportForm(ModelForm):
     class Meta:
-        model = Martyr
+        model = News
         exclude = ("approved",)
