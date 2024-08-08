@@ -12,4 +12,5 @@ db.sqlite3
 # venv
 .venv
 .env
+venv/
 dumb.json
