@@ -17,5 +17,10 @@ class MartyrAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    list_display = ("title", "id", "approved")
+    list_filter = ("approved", "is_killed")
+
+
+admin.site.register(News, NewsAdmin)
 admin.site.register(Martyr, MartyrAdmin)
