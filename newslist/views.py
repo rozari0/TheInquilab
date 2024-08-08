@@ -1,4 +1,5 @@
 from typing import Any
+
 from django.db.models.query import QuerySet
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
@@ -23,6 +24,9 @@ class NewsListView(ListView):
     model = News
     paginate_by = 5
     template_name = "news/newslist.html"
+
+    def get_queryset(self) -> QuerySet[Any]:
+        return self.model.objects.filter(approved=True)
 
 
 def NewsReport(request):
@@ -57,4 +61,4 @@ class MartyrListView(ListView):
     template_name = "martyrs/martyrs.html"
 
     def get_queryset(self) -> QuerySet[Any]:
-        return Martyr.objects.filter(approved=True)
+        return self.model.objects.filter(approved=True)

@@ -1,4 +1,4 @@
-from django.forms import ModelForm, DateField, DateInput
+from django.forms import DateField, DateInput, ModelForm
 
 from .models import Martyr, News
 

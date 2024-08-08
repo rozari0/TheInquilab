@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Martyr, News, LongDescription
+from .models import LongDescription, Martyr, News
 
 # Register your models here.
 

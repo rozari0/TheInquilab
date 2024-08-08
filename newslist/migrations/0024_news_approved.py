@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("newslist", "0023_remove_news_title_en_alter_news_title"),
     ]

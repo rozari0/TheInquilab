@@ -4,9 +4,9 @@ from django.urls import path
 from .views import (
     HomepageView,
     MartyrListView,
-    NewsReport,
-    NewsListView,
     MartyrReport,
+    NewsListView,
+    NewsReport,
     tagview,
 )
 

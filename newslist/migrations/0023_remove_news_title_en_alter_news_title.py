@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("newslist", "0022_martyr_approved_martyr_birth_delete_userreport"),
     ]
