@@ -10,7 +10,7 @@ class DescriptionInline(admin.StackedInline):
 
 
 class MartyrAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "approved")
+    list_display = ("name", "id", "approved")
     list_filter = ("approved",)
     inlines = [
         DescriptionInline,
