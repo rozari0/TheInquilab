@@ -3,7 +3,7 @@ from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
-from django.views.generic.list import ListView
+from django.views.generic import ListView, DetailView
 from taggit.models import Tag
 
 from .forms import MartyrReportForm, NewsReportForm
@@ -62,3 +62,10 @@ class MartyrListView(ListView):
 
     def get_queryset(self) -> QuerySet[Any]:
         return self.model.objects.filter(approved=True)
+
+
+class MartyrDetailView(DetailView):
+    context_object_name = "martyr"
+    model = Martyr
+
+    template_name = "martyrs/martyrs_details.html"

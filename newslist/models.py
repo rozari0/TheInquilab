@@ -2,6 +2,8 @@ from django.db import models
 from django.db.models.signals import pre_save
 from taggit.managers import TaggableManager
 from tinymce.models import HTMLField
+from autoslug import AutoSlugField
+from slugify import slugify
 
 from .bn_taggit import BnTaggedItem
 
@@ -54,6 +56,10 @@ def news_pre_save(sender, instance, *args, **kwargs):
 pre_save.connect(news_pre_save, sender=News)
 
 
+def get_title_and_id(instance):
+    return instance.name + "-" + str(instance.id)
+
+
 class Martyr(models.Model):
     name = models.CharField(
         max_length=100, help_text="Enter the full name of the martyr."
@@ -73,6 +79,7 @@ class Martyr(models.Model):
         blank=True,
         help_text="Indicate whether the martyr's information is approved by an admin.",
     )
+    slug = AutoSlugField(populate_from=get_title_and_id, unique=True, slugify=slugify)
 
     class Meta:
         ordering = ["death", "name"]

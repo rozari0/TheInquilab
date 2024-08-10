@@ -15,7 +15,8 @@
             <img loading="lazy" src="{{ martyr.image }}" alt="{{ martyr.name }}" />
           </figure>
           <div class="card-body">
-            <h2 class="card-title text-lg font-bold">{{ martyr.name }}</h2>
+            <a href="{% url 'martyr' martyr.slug %}"><h2 class="card-title text-lg font-bold">{{ martyr.name }}</h2></a>
+
             <div class="description">{{ martyr.short_description|bleach }}</div>
           </div>
         </div>

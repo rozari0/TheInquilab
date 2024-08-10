@@ -4,6 +4,7 @@ from django.urls import path
 from .views import (
     HomepageView,
     MartyrListView,
+    MartyrDetailView,
     MartyrReport,
     NewsListView,
     NewsReport,
@@ -22,4 +23,5 @@ urlpatterns = [
     ),
     path("", HomepageView.as_view(), name="home"),
     path("martyrs/", MartyrListView.as_view(), name="martyrs"),
+    path("martyr/<slug:slug>/", MartyrDetailView.as_view(), name="martyr"),
 ]
