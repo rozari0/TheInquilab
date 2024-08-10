@@ -37,55 +37,51 @@
       <div class="join">
         <!-- Previous page button -->
         {% if page_obj.has_previous %}
-          <a href="?page={{ page_obj.previous_page_number }}" class="join-item btn">Previous</a>
+          <a href="?page={{ page_obj.previous_page_number }}" class="join-item btn btn-outline">Previous</a>
         {% else %}
           <span class="join-item btn btn-disabled">Previous</span>
         {% endif %}
-    
+        
         <!-- First page button -->
         {% if page_obj.number > 3 %}
-          <a href="?page=1" class="join-item btn">1</a>
+          <a href="?page=1" class="join-item btn btn-outline">1</a>
         {% endif %}
-    
-        <!-- Second page button -->
-        {% if page_obj.number > 4 %}
-          <a href="?page=2" class="join-item btn">2</a>
-        {% endif %}
-    
+        
         <!-- Ellipses before the current page range -->
-        {% if page_obj.number > 5 %}
+        {% if page_obj.number > 4 %}
           <span class="join-item btn btn-disabled">...</span>
         {% endif %}
-    
+        
         <!-- Page number buttons -->
         {% for num in page_obj.paginator.page_range %}
           {% if num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
             {% if num == page_obj.number %}
               <span class="join-item btn btn-active">{{ num }}</span>
             {% else %}
-              <a href="?page={{ num }}" class="join-item btn">{{ num }}</a>
+              <a href="?page={{ num }}" class="join-item btn btn-outline">{{ num }}</a>
             {% endif %}
           {% endif %}
         {% endfor %}
-    
+        
         <!-- Ellipses after the current page range -->
         {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
           <span class="join-item btn btn-disabled">...</span>
         {% endif %}
-    
+        
         <!-- Last page button -->
-        {% if page_obj.number < page_obj.paginator.num_pages|add:'-1' %}
-          <a href="?page={{ page_obj.paginator.num_pages }}" class="join-item btn">{{ page_obj.paginator.num_pages }}</a>
+        {% if page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+          <a href="?page={{ page_obj.paginator.num_pages }}" class="join-item btn btn-outline">{{ page_obj.paginator.num_pages }}</a>
         {% endif %}
-    
+        
         <!-- Next page button -->
         {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}" class="join-item btn">Next</a>
+          <a href="?page={{ page_obj.next_page_number }}" class="join-item btn btn-outline">Next</a>
         {% else %}
           <span class="join-item btn btn-disabled">Next</span>
         {% endif %}
       </div>
     </div>
+    
     
   </div>
 {% endblock %}
