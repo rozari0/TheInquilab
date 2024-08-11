@@ -5,31 +5,38 @@
 {% block content %}
   {% load bleach_tags %}
   <div class="container mx-auto px-4 py-10 lg:w-2/3 md:w-3/4">
-    <div class="bg-base-100 shadow-lg rounded-lg overflow-hidden">
-      <div class="relative bg-primary text-primary-content">
-        <figure class="overflow-hidden justify-center items-center">
-          <img class="object-cover" loading="lazy" src="{{ martyr.image }}" alt="{{ martyr.name }}" />
-        </figure>
-        <div class="absolute bottom-0 left-0 right-0 p-4 bg-opacity-80 bg-primary">
-          <h1 class="text-3xl font-bold">{{ martyr.name }}</h1>
-          {% if martyr.birth or martyr.death %}
-            <p class="text-sm mt-2">
-              {% if martyr.birth %}
-                Born: {{ martyr.birth }}
-              {% endif %}
-              <br />
-              {% if martyr.death %}
-                Died: {{ martyr.death }}
-              {% endif %}
-            </p>
-          {% endif %}
+    <!-- Card Container -->
+    <div class="bg-base-100 shadow-xl rounded-lg overflow-hidden">
+      <!-- Image Section -->
+      <div class="relative">
+        <img class="w-full h-full object-cover" loading="lazy" src="{{ martyr.image }}" alt="{{ martyr.name }}" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex flex-col justify-end p-6">
+          <div class="text-primary-content">
+            <h1 class="text-4xl font-extrabold mb-2">{{ martyr.name }}</h1>
+            {% if martyr.birth or martyr.death %}
+              <p class="text-md font-medium">
+                {% if martyr.birth %}
+                  Born: {{ martyr.birth }}
+                {% endif %}
+                {% if martyr.death %}
+                  <br />
+                  Died: {{ martyr.death }}
+                {% endif %}
+              </p>
+            {% endif %}
+          </div>
         </div>
       </div>
-      <div class="p-6">
-        <p class="text-lg mb-4">{{ martyr.short_description|bleach }}</p>
-        {% if martyr.long_description %}
-          <div class="prose max-w-none">{{ martyr.long_description.description|bleach }}</div>
-        {% endif %}
+      <!-- Content Section -->
+      <div class="p-6 bg-base-200">
+        <div class="prose lg:prose-xl">
+          <p class="text-lg mb-4">{{ martyr.short_description|bleach }}</p>
+          {% if martyr.long_description %}
+            <div class="text-base">
+              {{ martyr.long_description.description|bleach }}
+            </div>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
