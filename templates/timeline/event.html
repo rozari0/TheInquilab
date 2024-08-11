@@ -6,18 +6,22 @@
 
 {% block content %}
   {% load bleach_tags %}
-  <div class="container mx-auto px-4 py-6 lg:w-1/2 md:w-1/2">
-    <div class="card bg-base-100 shadow-lg rounded-lg">
-      <div class="card-header bg-primary text-primary-content p-4 rounded-t-lg">
-        <h2 class="text-2xl font-semibold">{{ event.title }}</h2>
-        <p class="text-sm">{{ event.date }}</p>
+  <div class="container mx-auto px-4 py-6 lg:w-2/3 md:w-3/4">
+    <div class="card bg-base-100 shadow-xl rounded-lg overflow-hidden">
+      <div class="bg-primary text-primary-content p-6">
+        <h2 class="text-3xl font-bold">{{ event.title }}</h2>
+        <p class="text-sm mt-2">{{ event.date }}</p>
       </div>
-      <div class="card-body p-4">
-        <p class="text-base">{{ event.description|bleach }}</p>
+      <div class="p-6">
+        <p class="text-base leading-relaxed mb-4">{{ event.description|bleach }}</p>
         {% if event.read_more %}
-          <hr />
-          <h1 class="text-xl">Read More:</h1>
-          <p class="text-base">{{ event.read_more|bleach }}</p>
+          <hr class="my-4 border-t-2 border-gray-200" />
+          <div class="bg-gray-100 p-4">
+            <h3 class="text-xl font-semibold text-primary mb-2">Read More</h3>
+            <div class="text-info-content leading-relaxed text-gray-700">
+              {{ event.read_more|bleach }}
+            </div>
+          </div>
         {% endif %}
       </div>
     </div>

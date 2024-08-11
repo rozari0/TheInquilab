@@ -65,7 +65,7 @@ The Inquilab
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
           </svg>
         </li>
-        <li><a class="text-sm text-gray-400 " href="{% url 'news-list' %}">News</a></li>
+        <li><a class="text-sm text-gray-400 hover:text-gray-500" href="{% url 'news-list' %}">News</a></li>
         <li class="text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -82,7 +82,7 @@ The Inquilab
       </ul>
       <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="{% url 'report-news' %}">
         Add News</a>
-      <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="{% url 'report-martyr' %}">
+      <a class="hidden lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-600 text-sm text-white font-bold rounded-xl transition duration-200" href="{% url 'report-martyr' %}">
         Add Martyrs</a>
     </nav>
     <div class="navbar-menu relative z-50 hidden">
@@ -101,16 +101,16 @@ The Inquilab
         <div>
           <ul>
             <li class="mb-1">
-              <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{% url 'home' %}">Home</a>
+              <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-blue-600 rounded" href="{% url 'home' %}">Home</a>
             </li>
             <li class="mb-1">
-              <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{% url 'news-list' %}">News</a>
+              <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-blue-600 rounded" href="{% url 'news-list' %}">News</a>
             </li>
             <li class="mb-1">
-              <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{% url 'martyrs' %}">Martyrs</a>
+              <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-blue-600 rounded" href="{% url 'martyrs' %}">Martyrs</a>
             </li>
             <li class="mb-1">
-              <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="{% url 'timeline' %}">Timeline</a>
+              <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-blue-600 rounded" href="{% url 'timeline' %}">Timeline</a>
             </li>
 
           </ul>
@@ -118,7 +118,7 @@ The Inquilab
         <div class="mt-auto">
           <div class="pt-6">
             <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="{% url 'report-news' %}">Add News</a>
-            <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-blue-600 hover:bg-blue-700  rounded-xl" href="{% url 'report-martyr' %}">Add Martyrssr
+            <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-red-600 hover:bg-red-700  rounded-xl" href="{% url 'report-martyr' %}">Add Martyrssr
 
             </a>
           </div>
