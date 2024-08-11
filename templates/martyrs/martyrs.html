@@ -1,23 +1,26 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  The Martyrs of the protest
+  The Martyrs of the Protest
 {% endblock %}
 
 {% block content %}
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-extrabold text-center mb-12 text-primary">Martyrs of Andolon</h1>
     {% load bleach_tags %}
-    <div class="flex flex-wrap justify-center space-x-0 sm:space-x-4 space-y-4 sm:space-y-0">
+    <div class="flex flex-wrap justify-center gap-6">
       {% for martyr in martyrs %}
-        <div class="card card-compact bg-base-100 w-full sm:w-96 shadow-xl mx-2">
-          <figure>
-            <img loading="lazy" src="{{ martyr.image }}" alt="{{ martyr.name }}" />
+        <div class="card card-compact bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-96 mx-2">
+          <figure class="overflow-hidden rounded-t-lg">
+            <img loading="lazy" src="{{ martyr.image }}" alt="{{ martyr.name }}" class="object-cover w-full h-48" />
           </figure>
-          <div class="card-body">
-            <a href="{% url 'martyr' martyr.slug %}"><h2 class="card-title text-lg font-bold">{{ martyr.name }}</h2></a>
-
-            <div class="description">{{ martyr.short_description|bleach }}</div>
+          <div class="card-body p-6">
+            <a href="{% url 'martyr' martyr.slug %}" class="block mb-4">
+              <h2 class="text-2xl font-bold text-gray-800 hover:text-primary transition-colors duration-300">{{ martyr.name }}</h2>
+            </a>
+            <div class="text-gray-600 text-sm">
+              {{ martyr.short_description|bleach }}
+            </div>
           </div>
         </div>
       {% endfor %}
