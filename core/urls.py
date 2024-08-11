@@ -7,4 +7,5 @@ urlpatterns = [
     path("", include("timeline.urls")),
     path("tinymce/", include("tinymce.urls")),
     path("galleries/", include("gallery.urls")),
+    path("api/v1/", include("core.api")),
 ]
