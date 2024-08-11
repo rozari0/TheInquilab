@@ -12,7 +12,7 @@
       {% for martyr in martyrs %}
         <div class="card card-compact bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-96 mx-2">
           <figure class="overflow-hidden rounded-t-lg">
-            <img loading="lazy" src="{{ martyr.image }}" alt="{{ martyr.name }}" class="object-cover w-full h-48" />
+            <img loading="lazy" src="{{ martyr.image }}" alt="{{ martyr.name }}" class="object-cover w-full h-full" />
           </figure>
           <div class="card-body p-6">
             <a href="{% url 'martyr' martyr.slug %}" class="block mb-4">
