@@ -2,9 +2,16 @@ from typing import List
 from django.shortcuts import get_object_or_404
 from ninja import ModelSchema, NinjaAPI
 from .models import LongDescription, News, Martyr
+from timeline.models import Event
 from django.urls import path
 
 api = NinjaAPI()
+
+
+class EventSchema(ModelSchema):
+    class Meta:
+        model = Event
+        fields = "__all__"
 
 
 class NewsSchema(ModelSchema):
@@ -47,6 +54,17 @@ def get_martyr_list(request):
 def get_martyr(request, martyr_id: int):
     martyr = get_object_or_404(Martyr, id=martyr_id)
     return martyr
+
+
+@api.get("/timeline", response=List[EventSchema])
+def get_timeline(request):
+    return Event.objects.all()
+
+
+@api.get("/event/{id}", response=EventSchema)
+def get_event(request, id):
+    event = get_object_or_404(Event, id=id)
+    return event
 
 
 urlpatterns = [
