@@ -17,7 +17,7 @@ class EventSchema(ModelSchema):
 class NewsSchema(ModelSchema):
     class Meta:
         model = News
-        exclude = ("approved", "tags", "tagged_items")
+        exclude = ("approved",)
 
 
 class MartyrDescriptionSchema(ModelSchema):

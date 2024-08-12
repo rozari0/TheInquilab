@@ -1,10 +1,10 @@
 from typing import Any
 
 from django.db.models.query import QuerySet
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import redirect, render
 from django.views import View
 from django.views.generic import ListView, DetailView
-from taggit.models import Tag
+
 
 from .forms import MartyrReportForm, NewsReportForm
 from .models import Martyr, News
@@ -36,16 +36,6 @@ def NewsReport(request):
         return redirect("success")
 
     return render(request, template_name="news/report.html", context={"form": form})
-
-
-def tagview(request, slug):
-    objects = get_object_or_404(Tag, slug=slug)
-    objects = News.objects.filter(tags__slug__in=[slug])
-    return render(
-        request,
-        template_name="news/newslist.html",
-        context={"object_list": objects},
-    )
 
 
 class HomepageView(View):

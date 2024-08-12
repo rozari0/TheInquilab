@@ -1,13 +1,11 @@
 from django.db import models
 from django.db.models.signals import pre_save
-from taggit.managers import TaggableManager
+
 from tinymce.models import HTMLField
 from autoslug import AutoSlugField
 from slugify import slugify
 from string import ascii_letters
 from random import choices
-
-from .bn_taggit import BnTaggedItem
 
 
 # Create your models here.
@@ -37,7 +35,6 @@ class News(models.Model):
     approved = models.BooleanField(
         help_text="Indicate whether the news is approved by an admin.", default=False
     )
-    tags = TaggableManager(through=BnTaggedItem)
 
     class Meta:
         verbose_name_plural = "News"
