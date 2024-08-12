@@ -35,10 +35,15 @@ class News(models.Model):
     approved = models.BooleanField(
         help_text="Indicate whether the news is approved by an admin.", default=False
     )
+    published = models.DateField(
+        null=True,
+        blank=True,
+        help_text="Optional: Enter the date when the news was published.",
+    )
 
     class Meta:
         verbose_name_plural = "News"
-        ordering = ["-id"]
+        ordering = ["-published", "-id"]
 
     def __str__(self):
         return self.title
