@@ -17,9 +17,13 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 if DEBUG:
-    ALLOWED_HOSTS = ["*",]
+    ALLOWED_HOSTS = [
+        "*",
+    ]
 else:
-    ALLOWED_HOSTS = ["theinquilab.com",]
+    ALLOWED_HOSTS = [
+        "theinquilab.com",
+    ]
 
 
 # Application definition

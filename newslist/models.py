@@ -4,6 +4,8 @@ from taggit.managers import TaggableManager
 from tinymce.models import HTMLField
 from autoslug import AutoSlugField
 from slugify import slugify
+from string import ascii_letters
+from random import choices
 
 from .bn_taggit import BnTaggedItem
 
@@ -50,14 +52,14 @@ class News(models.Model):
 
 def news_pre_save(sender, instance, *args, **kwargs):
     if instance.archive_link == "" or instance.archive_link is None:
-        instance.archive_link = f"https://web.archive.org/save/{instance.link}"
+        instance.archive_link = f"https://web.archive.org/web/0/{instance.link}"
 
 
 pre_save.connect(news_pre_save, sender=News)
 
 
 def get_title_and_id(instance):
-    return instance.name + "-" + str(instance.id)
+    return instance.name + "-" + "".join(choices(ascii_letters, k=3))
 
 
 class Martyr(models.Model):
