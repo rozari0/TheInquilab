@@ -31,11 +31,8 @@ django==5.1
     # via django-ninja-extra
     # via django-taggit
     # via django-tinymce
-django-admin-interface==0.28.8
 django-autoslug==1.9.9
 django-bleach==3.1.0
-django-colorfield==0.11.0
-    # via django-admin-interface
 django-crispy-forms==2.3
     # via crispy-bootstrap5
     # via crispy-tailwind
@@ -49,8 +46,6 @@ injector==0.22.0
     # via django-ninja-extra
 packaging==24.1
     # via gunicorn
-pillow==10.4.0
-    # via django-colorfield
 psycopg2==2.9.9
 pydantic==2.8.2
     # via django-ninja
@@ -58,7 +53,6 @@ pydantic-core==2.20.1
     # via pydantic
 python-decouple==3.8
 python-slugify==8.0.4
-    # via django-admin-interface
 six==1.16.0
     # via bleach
 sqlparse==0.5.1
