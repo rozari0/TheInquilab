@@ -17,16 +17,18 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 if DEBUG:
-    ALLOWED_HOSTS = ["*",]
+    ALLOWED_HOSTS = [
+        "*",
+    ]
 else:
-    ALLOWED_HOSTS = ["theinquilab.com",]
+    ALLOWED_HOSTS = [
+        "theinquilab.com",
+    ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    "admin_interface",
-    "colorfield",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

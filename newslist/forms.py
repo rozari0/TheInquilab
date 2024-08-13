@@ -13,6 +13,8 @@ class MartyrReportForm(ModelForm):
 
 
 class NewsReportForm(ModelForm):
+    published = DateField(widget=DateInput(attrs={"type": "date"}), required=False)
+
     class Meta:
         model = News
         exclude = ("approved",)

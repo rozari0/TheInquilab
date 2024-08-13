@@ -8,12 +8,10 @@ from .views import (
     MartyrReport,
     NewsListView,
     NewsReport,
-    tagview,
 )
 
 urlpatterns = [
     path("news/", NewsListView.as_view(), name="news-list"),
-    path("tag/<slug:slug>", tagview, name="tagbase-view"),
     path("report/martyr/", MartyrReport, name="report-martyr"),
     path("report/news/", NewsReport, name="report-news"),
     path(

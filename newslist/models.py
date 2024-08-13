@@ -1,11 +1,11 @@
 from django.db import models
 from django.db.models.signals import pre_save
-from taggit.managers import TaggableManager
+
 from tinymce.models import HTMLField
 from autoslug import AutoSlugField
 from slugify import slugify
-
-from .bn_taggit import BnTaggedItem
+from string import ascii_letters
+from random import choices
 
 
 # Create your models here.
@@ -35,11 +35,15 @@ class News(models.Model):
     approved = models.BooleanField(
         help_text="Indicate whether the news is approved by an admin.", default=False
     )
-    tags = TaggableManager(through=BnTaggedItem)
+    published = models.DateField(
+        null=True,
+        blank=True,
+        help_text="Optional: Enter the date when the news was published.",
+    )
 
     class Meta:
         verbose_name_plural = "News"
-        ordering = ["-id"]
+        ordering = ["-published", "-id"]
 
     def __str__(self):
         return self.title
@@ -50,14 +54,14 @@ class News(models.Model):
 
 def news_pre_save(sender, instance, *args, **kwargs):
     if instance.archive_link == "" or instance.archive_link is None:
-        instance.archive_link = f"https://web.archive.org/save/{instance.link}"
+        instance.archive_link = f"https://web.archive.org/web/0/{instance.link}"
 
 
 pre_save.connect(news_pre_save, sender=News)
 
 
 def get_title_and_id(instance):
-    return instance.name + "-" + str(instance.id)
+    return instance.name + "-" + "".join(choices(ascii_letters, k=3))
 
 
 class Martyr(models.Model):
