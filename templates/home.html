@@ -27,21 +27,37 @@
 {% block content %}
   <div class="p-4">
     <figure class="relative w-full rounded-lg overflow-hidden">
-      <img src="//wsrv.nl/?url=https://i.ibb.co/pn27KQ2/Wing-Shots.jpg" class="w-full object-cover" alt="Sheikh Hasina resigns from the Prime Ministership" />
+      <img src="//wsrv.nl/?url=https://i.ibb.co/pn27KQ2/Wing-Shots.jpg" class="w-full object-cover hover:scale-105 transition-transform duration-300 ease-in-out" alt="Sheikh Hasina resigns from the Prime Ministership" />
       <figcaption class="text-center text-sm mt-2">Photo of Bangladesh National Parliament House after people's takeover. PC: Wing Shots</figcaption>
     </figure>
 
-    <div class="info p-4 bg-base-200 rounded-lg mt-4">
+    <div class="info p-4 bg-base-200 rounded-lg mt-4 hover:bg-base-300 transition-colors duration-300">
       <h3 class="text-2xl mb-3 text-red-600 font-semibold">Sheikh Hasina resigns from the&nbsp;<del>Prime Ministership</del>&nbsp;dictatorship</h3>
       <p>Bangladeshi Prime Minister Sheikh Hasina has resigned after weeks of deadly anti-government protests, ending her more than two-decade-long dominance in the country's politics. The protests, sparked by her government's actions, resulted in the deaths of over 300 people during an anti-quota demonstration.</p>
       <p class="mb-4">This project aims to document all attacks carried out by the police and BCL on students.</p>
     </div>
   </div>
 
+  <div class="flex items-center justify-center ">
+    <div class="stats stats-vertical lg:stats-horizontal shadow-lg rounded-lg p-6">
+      <div class="stat">
+        <div class="stat-title text-lg font-semibold">Total News (Archived)</div>
+        <div class="stat-value text-4xl font-bold text-blue-600">100</div>
+        <div class="stat-desc text-gray-500">Updated Recently</div>
+      </div>
+  
+      <div class="stat">
+        <div class="stat-title text-lg font-semibold">Total Martyrs (Officially)</div>
+        <div class="stat-value text-4xl font-bold text-red-600">700+</div>
+        <div class="stat-desc text-gray-500">Recognized Nationwide</div>
+      </div>
+    </div>
+  </div>
+  
   <div class="flex justify-center mt-4 space-x-2">
-    <a href="{% url 'news-list' %}" class="btn btn-primary btn-sm">News Archive</a>
-    <a href="{% url 'timeline' %}" class="btn btn-primary btn-sm">Timeline</a>
-    <a href="{% url 'martyrs' %}" class="btn btn-primary btn-sm">Martyrs</a>
+    <a href="{% url 'news-list' %}" class="btn btn-primary btn-sm hover:bg-blue-700 transition-colors duration-300">News Archive</a>
+    <a href="{% url 'timeline' %}" class="btn btn-primary btn-sm hover:bg-blue-700 transition-colors duration-300">Timeline</a>
+    <a href="{% url 'martyrs' %}" class="btn btn-primary btn-sm hover:bg-blue-700 transition-colors duration-300">Martyrs</a>
   </div>
 
   {% load bleach_tags %}
@@ -49,10 +65,10 @@
     <div class="w-full md:w-4/5 mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {% for news in news_list %}
-          <div class="shadow-lg rounded-lg overflow-hidden border bg-base-100 border-accent">
+          <div class="shadow-lg rounded-lg overflow-hidden border bg-base-100 border-accent hover:shadow-xl transition-shadow duration-300">
             {% if news.image %}
               <div class="relative">
-                <img src="{{ news.image }}" loading="lazy" class="w-full h-80 object-cover" alt="{{ news.title }}" />
+                <img src="{{ news.image }}" loading="lazy" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-300 ease-in-out" alt="{{ news.title }}" />
                 {% if news.newspaperName %}
                   <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">{{ news.newspaperName }}</div>
                 {% endif %}
@@ -61,14 +77,14 @@
                 {% endif %}
               </div>
             {% endif %}
-            <div class="p-6">
+            <div class="p-6 hover:bg-base-300 transition-colors duration-300">
               <h3 class="text-xl font-semibold mb-2">{{ news.title }}</h3>
               <p class="mb-4 text-sm">
                 {{ news.description|slice:':100' }}{% if news.description|length > 100 %}...{% endif %}
               </p>
               <div class="flex justify-between items-center">
-                <a href="{{ news.link }}" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Read Full Article</a>
-                <a href="{{ news.archive_link }}" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">View Archived</a>
+                <a href="{{ news.link }}" class="btn btn-primary btn-sm hover:bg-blue-700 transition-colors duration-300" target="_blank" rel="noopener noreferrer">Read Full Article</a>
+                <a href="{{ news.archive_link }}" class="btn btn-secondary btn-sm hover:bg-gray-700 transition-colors duration-300" target="_blank" rel="noopener noreferrer">View Archived</a>
               </div>
             </div>
           </div>
