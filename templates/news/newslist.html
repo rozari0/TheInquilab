@@ -13,10 +13,15 @@
           <div class="grid grid-cols-1 md:grid-cols-2">
             <!-- Image Column -->
             {% if news.image %}
-              <figure class="flex items-center justify-center p-4">
-                <img src="//wsrv.nl/?url={{ news.image }}" class="object-cover h-48 w-full md:w-full" alt="{{ news.title }}" />
-              </figure>
-            {% endif %}
+            <figure class="flex items-center justify-center p-4">
+              <img src="//wsrv.nl/?url={{ news.image }}" class="object-cover h-48 w-full md:w-full" alt="{{ news.title }}" />
+            </figure>
+          {% else %}
+            <figure class="flex items-center justify-center p-4">
+              <img src="https://placehold.co/600x400" class="object-cover h-48 w-full md:w-full" alt="No image available" />
+            </figure>
+          {% endif %}
+          
             <!-- Text Column -->
             <div class="p-6 flex flex-col justify-between">
               <h3 class="text-xl font-semibold mb-2">{{ news.title }}</h3>
@@ -34,53 +39,54 @@
     </div>
 
     <div class="mt-6 flex justify-center">
-      <div class="join">
+      <div class="join space-x-1">
         <!-- Previous page button -->
         {% if page_obj.has_previous %}
-          <a href="?page={{ page_obj.previous_page_number }}" class="join-item btn btn-outline">Previous</a>
+          <a href="?page={{ page_obj.previous_page_number }}" class="join-item btn btn-outline btn-xs px-2 py-1">Previous</a>
         {% else %}
-          <span class="join-item btn btn-disabled">Previous</span>
+          <span class="join-item btn btn-disabled btn-xs px-2 py-1">Previous</span>
         {% endif %}
         
         <!-- First page button -->
         {% if page_obj.number > 3 %}
-          <a href="?page=1" class="join-item btn btn-outline">1</a>
+          <a href="?page=1" class="join-item btn btn-outline btn-xs px-2 py-1">1</a>
         {% endif %}
         
         <!-- Ellipses before the current page range -->
         {% if page_obj.number > 4 %}
-          <span class="join-item btn btn-disabled">...</span>
+          <span class="join-item btn btn-disabled btn-xs px-2 py-1">...</span>
         {% endif %}
         
         <!-- Page number buttons -->
         {% for num in page_obj.paginator.page_range %}
           {% if num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
             {% if num == page_obj.number %}
-              <span class="join-item btn btn-active">{{ num }}</span>
+              <span class="join-item btn btn-active btn-xs px-2 py-1">{{ num }}</span>
             {% else %}
-              <a href="?page={{ num }}" class="join-item btn btn-outline">{{ num }}</a>
+              <a href="?page={{ num }}" class="join-item btn btn-outline btn-xs px-2 py-1">{{ num }}</a>
             {% endif %}
           {% endif %}
         {% endfor %}
         
         <!-- Ellipses after the current page range -->
         {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
-          <span class="join-item btn btn-disabled">...</span>
+          <span class="join-item btn btn-disabled btn-xs px-2 py-1">...</span>
         {% endif %}
         
         <!-- Last page button -->
         {% if page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
-          <a href="?page={{ page_obj.paginator.num_pages }}" class="join-item btn btn-outline">{{ page_obj.paginator.num_pages }}</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}" class="join-item btn btn-outline btn-xs px-2 py-1">{{ page_obj.paginator.num_pages }}</a>
         {% endif %}
         
         <!-- Next page button -->
         {% if page_obj.has_next %}
-          <a href="?page={{ page_obj.next_page_number }}" class="join-item btn btn-outline">Next</a>
+          <a href="?page={{ page_obj.next_page_number }}" class="join-item btn btn-outline btn-xs px-2 py-1">Next</a>
         {% else %}
-          <span class="join-item btn btn-disabled">Next</span>
+          <span class="join-item btn btn-disabled btn-xs px-2 py-1">Next</span>
         {% endif %}
       </div>
     </div>
+    
     
     
   </div>
