@@ -1,9 +1,12 @@
 from typing import List
+
 from django.shortcuts import get_object_or_404
-from ninja import ModelSchema, NinjaAPI
-from .models import LongDescription, News, Martyr
-from timeline.models import Event
 from django.urls import path
+from ninja import ModelSchema, NinjaAPI, Schema
+
+from timeline.models import Event
+
+from .models import LongDescription, Martyr, News
 
 api = NinjaAPI()
 
@@ -32,6 +35,19 @@ class MartyrSchema(ModelSchema):
     class Meta:
         model = Martyr
         exclude = ("approved",)
+
+
+class CountSchema(Schema):
+    martyrs: int
+    news: int
+
+
+@api.get("/status", response=CountSchema)
+def status(request):
+    return {
+        "martyrs": Martyr.objects.count(),
+        "news": News.objects.count(),
+    }
 
 
 @api.get("/news", response=List[NewsSchema])

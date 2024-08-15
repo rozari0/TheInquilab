@@ -3,8 +3,8 @@ from django.urls import path
 
 from .views import (
     HomepageView,
-    MartyrListView,
     MartyrDetailView,
+    MartyrListView,
     MartyrReport,
     NewsListView,
     NewsReport,

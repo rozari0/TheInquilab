@@ -1,11 +1,11 @@
+from random import choices
+from string import ascii_letters
+
+from autoslug import AutoSlugField
 from django.db import models
 from django.db.models.signals import pre_save
-
-from tinymce.models import HTMLField
-from autoslug import AutoSlugField
 from slugify import slugify
-from string import ascii_letters
-from random import choices
+from tinymce.models import HTMLField
 
 
 # Create your models here.

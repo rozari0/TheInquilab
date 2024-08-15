@@ -2,8 +2,9 @@
 
 import autoslug.fields
 import slugify.slugify
-import timeline.models
 from django.db import migrations
+
+import timeline.models
 
 
 class Migration(migrations.Migration):

@@ -4,26 +4,6 @@
   The Inquilab
 {% endblock %}
 
-{% block comment %}
-  <!--                       
-  <div class="p-4">
-    <figure class="relative w-full rounded-lg overflow-hidden">
-      <img src="https://cdn.bdnews24.com/bdnews24/media/bangla/imgAll/2024July/clash-du-quota-protest-150724-14-1721052007.jpg" class="w-full h-40 object-cover" alt="Bangladesh Chhatra League activists attacked students protesting against freedom fighter quota in government jobs at Dhaka University" />
-      <figcaption class="text-center text-sm mt-2">Bangladesh Chhatra League activists attacked students protesting against freedom fighter quota in government jobs at Dhaka University. (credit bdnews24.com)</figcaption>
-    </figure>
-
-    <div class="info p-4 bg-base-200 rounded-lg mt-4">
-      <h3 class="text-2xl mb-3 text-red-600 font-semibold">Violent Protests in Bangladesh Over Quota Reform</h3>
-      <p>Protests demanding quota reform in Bangladesh for government jobs have turned violent. More than 5 students have died, and over 500 have been injured by the Police and Bangladesh Chhatra League (BCL).</p>
-      <p class="mb-4">This project aims to document all attacks carried out by the police and BCL on students.</p>
-      <p>
-        If you’re a protester and something is happening in your area, please take a photo or video and report it to us using the <a href="{% url 'report-view' %}" class="text-red-600 underline">Report Option</a> in the navbar.
-      </p>
-    </div>
-  </div>
-                       -->
-{% endblock %}
-
 {% block content %}
   <div class="p-4">
     <figure class="relative w-full rounded-lg overflow-hidden">
@@ -38,22 +18,22 @@
     </div>
   </div>
 
-  <div class="flex items-center justify-center ">
+  <div class="flex items-center justify-center">
     <div class="stats stats-vertical lg:stats-horizontal shadow-lg rounded-lg p-6">
       <div class="stat">
         <div class="stat-title text-lg font-semibold">Total News (Archived)</div>
-        <div class="stat-value text-4xl font-bold text-blue-600">100</div>
+        <div class="stat-value text-4xl font-bold text-blue-600 news-status">100</div>
         <div class="stat-desc text-gray-500">Updated Recently</div>
       </div>
-  
+
       <div class="stat">
         <div class="stat-title text-lg font-semibold">Total Martyrs (Officially)</div>
-        <div class="stat-value text-4xl font-bold text-red-600">700+</div>
+        <div class="stat-value text-4xl font-bold text-red-600 marty-status">700+</div>
         <div class="stat-desc text-gray-500">Recognized Nationwide</div>
       </div>
     </div>
   </div>
-  
+
   <div class="flex justify-center mt-4 space-x-2">
     <a href="{% url 'news-list' %}" class="btn btn-primary btn-sm hover:bg-blue-700 transition-colors duration-300">News Archive</a>
     <a href="{% url 'timeline' %}" class="btn btn-primary btn-sm hover:bg-blue-700 transition-colors duration-300">Timeline</a>
@@ -94,4 +74,22 @@
       </div>
     </div>
   </div>
+{% endblock %}
+
+{% block footerinclude %}
+  <script>
+    function updateStatus() {
+      fetch('/api/v1/status')
+        .then((response) => response.json())
+        .then((data) => {
+          document.querySelector('.news-status').textContent = data.news
+          document.querySelector('.marty-status').textContent = data.martyrs
+        })
+        .catch((error) => {
+          console.error('Error fetching status:', error)
+        })
+    }
+    
+    document.addEventListener('DOMContentLoaded', updateStatus)
+  </script>
 {% endblock %}

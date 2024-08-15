@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("newslist", "0030_delete_bntag_delete_bntaggeditem_remove_news_tags"),
     ]

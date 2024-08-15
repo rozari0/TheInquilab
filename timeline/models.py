@@ -1,9 +1,8 @@
 from autoslug import AutoSlugField
 from django.db import models
 from django.urls import reverse
-from tinymce.models import HTMLField
 from slugify import slugify
-
+from tinymce.models import HTMLField
 
 # Create your models here.
 

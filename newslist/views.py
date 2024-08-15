@@ -3,8 +3,7 @@ from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render
 from django.views import View
-from django.views.generic import ListView, DetailView
-
+from django.views.generic import DetailView, ListView
 
 from .forms import MartyrReportForm, NewsReportForm
 from .models import Martyr, News
