@@ -21,7 +21,7 @@ def MartyrReport(request):
 
 class NewsListView(ListView):
     model = News
-    paginate_by = 5
+    paginate_by = 6
     template_name = "news/newslist.html"
 
     def get_queryset(self) -> QuerySet[Any]:

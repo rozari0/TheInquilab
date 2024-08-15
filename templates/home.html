@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div class="flex items-center justify-center">
+  {% comment %} <div class="flex items-center justify-center">
     <div class="stats stats-vertical lg:stats-horizontal shadow-lg rounded-lg p-6">
       <div class="stat">
         <div class="stat-title text-lg font-semibold">Total News (Archived)</div>
@@ -32,7 +32,7 @@
         <div class="stat-desc text-gray-500">Recognized Nationwide</div>
       </div>
     </div>
-  </div>
+  </div> {% endcomment %}
 
   <div class="flex justify-center mt-4 space-x-2">
     <a href="{% url 'news-list' %}" class="btn btn-primary btn-sm hover:bg-blue-700 transition-colors duration-300">News Archive</a>
