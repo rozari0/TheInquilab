@@ -11,15 +11,15 @@
     <div id="masonry-grid" class="flex flex-wrap -mx-2">
       {% for martyr in martyrs %}
         <div class="masonry-item w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-2 mb-4">
-          <div class="card card-compact bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="card card-compact bg-base-100 border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
             <figure class="overflow-hidden rounded-t-lg">
               <img loading="lazy" src="//wsrv.nl/?url={{ martyr.image }}" alt="{{ martyr.name }}" class="object-cover w-full h-96" />
             </figure>
             <div class="card-body p-4">
               <a href="{% url 'martyr' martyr.slug %}" class="block mb-2">
-                <h2 class="text-lg font-semibold text-gray-800 hover:text-primary transition-colors duration-300">{{ martyr.name }}</h2>
+                <h2 class="text-lg font-semibold text-content hover:text-primary transition-colors duration-300">{{ martyr.name }}</h2>
               </a>
-              <div class="text-gray-600 text-sm">
+              <div class="text-description text-justify text-sm">
                 {{ martyr.short_description|bleach }}
               </div>
             </div>

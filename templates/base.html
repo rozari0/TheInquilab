@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html data-theme="mytheme" lang="en">
+{% comment %} <html data-theme="mytheme" lang="en"> {% endcomment %}
+  <html data-theme="halloween" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -67,8 +68,8 @@ owa_cmds.push(['trackClicks']);
 
     {% endblock %}
   </head>
-  <body class="bg-base-100 text-base-content">
-    <nav class="relative px-4 py-4 flex justify-between items-center bg-white">
+  <body class="bg-base-300 text-base-content">
+    <nav class="relative px-4 py-4 flex justify-between items-center bg-base-200">
       <a class="text-3xl font-bold leading-none" href="{% url 'home' %}">
 The Inquilab
       </a>
@@ -102,14 +103,14 @@ The Inquilab
         <li><a class="text-sm text-gray-400 hover:text-gray-500" href="{% url 'timeline' %}">Timeline</a></li>
      
       </ul>
-      <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="{% url 'report-news' %}">
+      <a class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-secondary text-base-100  text-sm  font-bold  rounded-xl transition duration-200" href="{% url 'report-news' %}">
         Add News</a>
-      <a class="hidden lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-600 text-sm text-white font-bold rounded-xl transition duration-200" href="{% url 'report-martyr' %}">
+      <a class="hidden lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-600 text-sm text-base-200 font-bold rounded-xl transition duration-200" href="{% url 'report-martyr' %}">
         Add Martyrs</a>
     </nav>
     <div class="navbar-menu relative z-50 hidden">
       <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-      <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+      <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-base-200 border-r overflow-y-auto">
         <div class="flex items-center mb-8">
           <a class="mr-auto text-3xl font-bold leading-none" href="{% url 'home' %">
         The Inquilab
@@ -139,8 +140,8 @@ The Inquilab
         </div>
         <div class="mt-auto">
           <div class="pt-6">
-            <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-xl" href="{% url 'report-news' %}">Add News</a>
-            <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-red-600 hover:bg-red-700  rounded-xl" href="{% url 'report-martyr' %}">Add Martyrs
+            <a class="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-base-100 hover:bg-primary rounded-xl" href="{% url 'report-news' %}">Add News</a>
+            <a class="block px-4 py-3 mb-2 leading-loose text-xs text-center text-base-200 font-semibold bg-red-600 hover:bg-red-700  rounded-xl" href="{% url 'report-martyr' %}">Add Martyrs
 
             </a>
           </div>
@@ -158,7 +159,7 @@ The Inquilab
 
     {% endblock %}
 
-    <footer class="footer bg-base-300 text-base-content py-4 mt-8">
+    <footer class="footer bg-base-200 text-base-content py-4 mt-8">
       <div class="container mx-auto flex justify-center items-center">
         <p class="text-center">The Inquilab. Made by Some Random Citizens.</p>
       </div>

@@ -35,9 +35,9 @@
   </div> {% endcomment %}
 
   <div class="flex justify-center mt-4 space-x-2">
-    <a href="{% url 'news-list' %}" class="btn btn-primary btn-sm hover:bg-blue-700 transition-colors duration-300">News Archive</a>
-    <a href="{% url 'timeline' %}" class="btn btn-primary btn-sm hover:bg-blue-700 transition-colors duration-300">Timeline</a>
-    <a href="{% url 'martyrs' %}" class="btn btn-primary btn-sm hover:bg-blue-700 transition-colors duration-300">Martyrs</a>
+    <a href="{% url 'news-list' %}" class="btn btn-primary btn-sm hover:bg-secondary-700 transition-colors duration-300">News Archive</a>
+    <a href="{% url 'timeline' %}" class="btn btn-primary btn-sm hover:bg-secondary-700 transition-colors duration-300">Timeline</a>
+    <a href="{% url 'martyrs' %}" class="btn btn-primary btn-sm hover:bg-secondary-700 transition-colors duration-300">Martyrs</a>
   </div>
 
   {% load bleach_tags %}
@@ -57,7 +57,7 @@
                 {% endif %}
               </div>
             {% endif %}
-            <div class="p-6 hover:bg-base-300 transition-colors duration-300">
+            <div class="p-6  transition-colors duration-300">
               <h3 class="text-xl font-semibold mb-2">{{ news.title }}</h3>
               <p class="mb-4 text-sm">
                 {{ news.description|slice:':100' }}{% if news.description|length > 100 %}...{% endif %}
