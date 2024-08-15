@@ -29,7 +29,7 @@ class MartyrAdmin(admin.ModelAdmin):
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ("title", "id", "approved")
+    list_display = ("title", "id", "approved", "published")
     list_filter = ("approved", "is_killed")
     actions = [make_approved, make_not_approved]
 
