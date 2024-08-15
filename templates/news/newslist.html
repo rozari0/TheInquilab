@@ -6,10 +6,10 @@
 
 {% block content %}
   {% load bleach_tags %}
-  <div class="container mx-auto md:w-4/5 mt-5">
+  <div class="container mx-auto md:w-4/5 mt-5 px-4 py-4">
     <div class="grid grid-cols-1 gap-4">
       {% for news in page_obj %}
-        <div class="card bg-base-100 shadow-md">
+        <div class="card bg-white shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg">
           <div class="grid grid-cols-1 md:grid-cols-2">
             <!-- Image Column -->
             {% if news.image %}
@@ -25,7 +25,7 @@
             <!-- Text Column -->
             <div class="p-6 flex flex-col justify-between">
               <h3 class="text-xl font-semibold mb-2">{{ news.title }}</h3>
-              <p class="mb-4 text-sm">
+              <p class="mb-4 text-sm text-justify">
                 {{ news.description|slice:":300" }}{% if news.description|length > 300 %}...{% endif %}
               </p>
               <div class="flex justify-between items-center">
@@ -86,8 +86,5 @@
         {% endif %}
       </div>
     </div>
-    
-    
-    
   </div>
 {% endblock %}
