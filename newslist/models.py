@@ -11,11 +11,13 @@ from tinymce.models import HTMLField
 # Create your models here.
 class News(models.Model):
     title = models.CharField(max_length=1000, help_text="Enter the title of the news.")
-    link = models.URLField(help_text="Provide the link to the original news article.")
+    link = models.URLField(help_text="Provide the link to the original news article.",
+                           max_length=2009)
     archive_link = models.URLField(
         null=True,
         blank=True,
         help_text="Optional: Provide a link to the archived version of the news.",
+        max_length=2009,
     )
     description = models.TextField(
         null=True,
