@@ -10,7 +10,10 @@
     <div class="grid grid-cols-1 gap-4">
       {% for news in page_obj %}
         <div class="card bg-base-100 shadow-md transform transition duration-300 hover:scale-105 hover:shadow-lg">
-          <div class="grid grid-cols-1 md:grid-cols-2">
+          <div class="grid grid-cols-1 md:grid-cols-2">  
+             <div class="absolute top-0 left-0 m-4 p-2">
+        <div class="badge badge-primary">{{ news.published }}</div>
+    </div>
             <!-- Image Column -->
             {% if news.image %}
             <figure class="flex items-center justify-center p-4">
