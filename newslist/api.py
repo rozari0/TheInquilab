@@ -3,6 +3,7 @@ from typing import List
 from django.shortcuts import get_object_or_404
 from django.urls import path
 from ninja import ModelSchema, NinjaAPI, Schema
+from ninja.pagination import paginate
 
 from timeline.models import Event
 
@@ -51,6 +52,7 @@ def status(request):
 
 
 @api.get("/news", response=List[NewsSchema])
+@paginate
 def get_news_list(request):
     return News.objects.filter(approved=True)
 
@@ -62,6 +64,7 @@ def get_news(request, news_id: int):
 
 
 @api.get("/martyr", response=List[MartyrSchema])
+@paginate
 def get_martyr_list(request):
     return Martyr.objects.filter(approved=True)
 

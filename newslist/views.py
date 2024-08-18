@@ -10,7 +10,7 @@ from .models import Martyr, News
 
 
 # Create your views here.
-def MartyrReport(request):
+def martyrReport(request):
     form = MartyrReportForm(request.POST or None)
     if form.is_valid():
         form.save()

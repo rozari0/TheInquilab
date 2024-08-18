@@ -6,6 +6,8 @@
 #   features: []
 #   all-features: false
 #   with-sources: false
+#   generate-hashes: false
+#   universal: false
 
 annotated-types==0.7.0
     # via pydantic
@@ -65,8 +67,6 @@ typing-extensions==4.12.2
     # via dj-database-url
     # via pydantic
     # via pydantic-core
-tzdata==2024.1
-    # via django
 webencodings==0.5.1
     # via bleach
     # via tinycss2

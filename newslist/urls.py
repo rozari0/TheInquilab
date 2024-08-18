@@ -5,14 +5,14 @@ from .views import (
     HomepageView,
     MartyrDetailView,
     MartyrListView,
-    MartyrReport,
+    martyrReport,
     NewsListView,
     NewsReport,
 )
 
 urlpatterns = [
     path("news/", NewsListView.as_view(), name="news-list"),
-    path("report/martyr/", MartyrReport, name="report-martyr"),
+    path("report/martyr/", martyrReport, name="report-martyr"),
     path("report/news/", NewsReport, name="report-news"),
     path(
         "success/",
