@@ -43,7 +43,7 @@ django-ninja==1.2.2
 django-ninja-extra==0.21.3
 django-taggit==6.0.0
 django-tinymce==4.1.0
-gunicorn==22.0.0
+gunicorn==23.0.0
 injector==0.22.0
     # via django-ninja-extra
 packaging==24.1

@@ -23,6 +23,7 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = [
         "theinquilab.com",
+        "127.0.0.1",
     ]
 
 
