@@ -75,7 +75,10 @@ class Martyr(models.Model):
     short_description = HTMLField(
         help_text="Provide a brief description of the martyr's life and legacy."
     )
-    image = models.URLField(help_text="Provide a URL to an image of the martyr.")
+    image = models.URLField(
+        help_text="Provide a URL to an image of the martyr.",
+        default="https://i.ibb.co/v3Bbnf5/gray-photo-placeholder.jpg",
+    )
     birth = models.DateField(
         null=True, blank=True, help_text="Optional: Enter the birth date of the martyr."
     )
