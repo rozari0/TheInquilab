@@ -5,9 +5,9 @@ from .views import (
     HomepageView,
     MartyrDetailView,
     MartyrListView,
-    martyrReport,
     NewsListView,
     NewsReport,
+    martyrReport,
 )
 
 urlpatterns = [

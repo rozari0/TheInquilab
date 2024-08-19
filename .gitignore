@@ -6,6 +6,7 @@ dist/
 wheels/
 *.egg-info
 staticfiles/
+.idea/
 
 # Database
 db.sqlite3

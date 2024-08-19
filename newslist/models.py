@@ -4,6 +4,7 @@ from string import ascii_letters
 from autoslug import AutoSlugField
 from django.db import models
 from django.db.models.signals import pre_save
+from django.urls import reverse
 from slugify import slugify
 from tinymce.models import HTMLField
 
@@ -11,8 +12,9 @@ from tinymce.models import HTMLField
 # Create your models here.
 class News(models.Model):
     title = models.CharField(max_length=1000, help_text="Enter the title of the news.")
-    link = models.URLField(help_text="Provide the link to the original news article.",
-                           max_length=2009)
+    link = models.URLField(
+        help_text="Provide the link to the original news article.", max_length=2009
+    )
     archive_link = models.URLField(
         null=True,
         blank=True,
@@ -92,6 +94,9 @@ class Martyr(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("martyr", args=[self.slug])
 
 
 class LongDescription(models.Model):

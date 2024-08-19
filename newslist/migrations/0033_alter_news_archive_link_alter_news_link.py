@@ -4,20 +4,27 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('newslist', '0032_alter_news_options'),
+        ("newslist", "0032_alter_news_options"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='news',
-            name='archive_link',
-            field=models.URLField(blank=True, help_text='Optional: Provide a link to the archived version of the news.', max_length=2009, null=True),
+            model_name="news",
+            name="archive_link",
+            field=models.URLField(
+                blank=True,
+                help_text="Optional: Provide a link to the archived version of the news.",
+                max_length=2009,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='news',
-            name='link',
-            field=models.URLField(help_text='Provide the link to the original news article.', max_length=2009),
+            model_name="news",
+            name="link",
+            field=models.URLField(
+                help_text="Provide the link to the original news article.",
+                max_length=2009,
+            ),
         ),
     ]

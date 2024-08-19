@@ -54,7 +54,11 @@ INSTALLED_APPS += [
     "crispy_tailwind",
     "django_bleach",
     "ninja_extra",
+    "django.contrib.sites",  # new
+    "django.contrib.sitemaps",  # new
 ]
+
+SITE_ID = 1
 
 # Crispy Forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
